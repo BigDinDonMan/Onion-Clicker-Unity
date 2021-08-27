@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
+  m_Name: Cloning Tool
+  m_EditorClassIdentifier: 
+  generatorName: Onion Cloning Tool
+  description: Simply clones onions... guess the name was right
+  basePrice: 0
+  baseIncome: 0
+  coefficient: 0
+  generatorIcon: {fileID: 0}

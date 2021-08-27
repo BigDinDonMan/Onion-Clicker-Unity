@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalAmountAchievement : Achievement
-{
+[CreateAssetMenu(menuName = "Achievements/Global Data Achievement", fileName = "New Achievement Data")]
+public class GlobalAmountAchievement : Achievement {
+    public override void Unlock() {
+    }
 }

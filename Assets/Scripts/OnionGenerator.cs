@@ -10,6 +10,7 @@ public class OnionGenerator : ScriptableObject
     public int basePrice;
     public double baseIncome;
     public double coefficient;
+    public double unlockedAtTotalOnions;
     public Sprite generatorIcon;
 
     public override bool Equals(object other) {

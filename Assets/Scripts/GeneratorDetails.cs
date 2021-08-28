@@ -99,7 +99,6 @@ public class GeneratorDetails : MonoBehaviour
     }
 
     public void TryUnlockAchievements() {
-        //todo: maybe do that in a loop so that we unlock all of the suitable achievements along the way
         var unlockableAchievements = generatorAchievements.Where(a => a.unlocked == false);
         var triggerData = new AchievementTriggerData() { 
             generator = this.generator,

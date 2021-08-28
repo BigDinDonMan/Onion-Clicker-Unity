@@ -29,6 +29,7 @@ public class IncomeManager : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space)) {
             PlayerDetails.instance.ChangeOnions(100);
+            generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
         }
 #endif
     }

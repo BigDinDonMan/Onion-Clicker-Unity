@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class GlobalOnionAmountAchievement : Achievement {
     public override bool Unlock(AchievementTriggerData triggerData) {
-        throw new System.NotImplementedException();
+        if (unlocked) return false;
+
+        if (triggerData.totalOnions >= this.triggerData.totalOnions) {
+            UnlockInternal();
+            return true;
+        }
+        return false;
     }
 }

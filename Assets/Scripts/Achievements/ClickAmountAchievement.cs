@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ClickAmountAchievement : Achievement {
     public override bool Unlock(AchievementTriggerData triggerData) {
-        throw new System.NotImplementedException();
+        if (unlocked) return false;
+
+        if (triggerData.totalClicks >= this.triggerData.totalClicks) {
+            UnlockInternal();
+            return true;
+        }
+
+        return false;
     }
 }

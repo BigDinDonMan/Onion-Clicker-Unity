@@ -9,8 +9,7 @@ public class GeneratorAmountAchievement : Achievement {
         if (this.triggerData.generator != triggerData.generator) return false;
 
         if (triggerData.generatorAmount >= this.triggerData.generatorAmount) {
-            this.unlocked = true;
-            this.unlockedAt = System.DateTime.Now;
+            UnlockInternal();
             return true;
         }
 

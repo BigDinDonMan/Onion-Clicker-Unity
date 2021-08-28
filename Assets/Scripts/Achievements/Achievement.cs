@@ -13,4 +13,10 @@ public abstract class Achievement : ScriptableObject
     public Sprite achievementIcon;
 
     public abstract bool Unlock(AchievementTriggerData triggerData);
+
+    protected void UnlockInternal() {
+        if (unlocked) return;
+        unlocked = true;
+        unlockedAt = System.DateTime.Now;
+    }
 }

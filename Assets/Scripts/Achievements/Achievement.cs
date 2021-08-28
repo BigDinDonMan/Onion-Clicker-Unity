@@ -11,5 +11,5 @@ public abstract class Achievement : ScriptableObject
     public bool unlocked;
     public Sprite achievementIcon;
 
-    public abstract void Unlock();
+    public abstract void Unlock(AchievementTriggerData triggerData);
 }

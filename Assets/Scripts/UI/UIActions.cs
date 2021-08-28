@@ -16,4 +16,8 @@ public class UIActions : MonoBehaviour
         var glidingText = textObject.GetComponent<GlidingText>();
         glidingText.text.text = PlayerDetails.instance.ClickIncome.ToString();
     }
+
+    public void SpawnAchievementPopUp(Achievement achievement) {
+
+    }
 }

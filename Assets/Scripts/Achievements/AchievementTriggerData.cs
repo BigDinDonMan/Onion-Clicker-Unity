@@ -4,12 +4,12 @@ using UnityEngine;
 
 //put all achievement data here and every achievement type will pull out whatever it needs
 [System.Serializable]
-public struct AchievementTriggerData
+public struct AchievementTriggerData //mark unused values with -1 or a very large number
 {
     public double totalOnions;
     public uint generatorAmount;
     public uint totalGeneratorAmount;
     public ulong totalClicks;
     public double totalClickOnions;
-    public Object payload;
+    public OnionGenerator generator;
 }

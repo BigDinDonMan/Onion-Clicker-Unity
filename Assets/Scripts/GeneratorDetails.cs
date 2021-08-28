@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,7 +10,7 @@ using TMPro;
 public class GeneratorDetails : MonoBehaviour
 {
     public OnionGenerator generator;
-    public int generatorAmount;
+    public uint generatorAmount;
     public ulong currentGeneratorPrice;
     public ulong current10GeneratorsPrice;
     public ulong current100GeneratorsPrice;
@@ -25,6 +26,10 @@ public class GeneratorDetails : MonoBehaviour
     public TextMeshProUGUI amountText;
     public TextMeshProUGUI generatorNameText;
 
+    private PlayerDetails playerDetails;
+
+    public List<Achievement> generatorAchievements;
+
 
     private void Awake() {
         RecalculatePrices();
@@ -35,12 +40,12 @@ public class GeneratorDetails : MonoBehaviour
         buy100Button.onClick.AddListener(() => Buy(100));
     }
 
-    public void Buy(int amount = 1) {
+    public void Buy(uint amount = 1) {
 
         void HandleBuy(double currentPrice) {
-            if (PlayerDetails.instance.Onions < currentPrice) return;
+            if (playerDetails.Onions < currentPrice) return;
 
-            PlayerDetails.instance.ChangeOnions(-currentPrice);
+            playerDetails.ChangeOnions(-currentPrice);
             generatorAmount += amount;
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
@@ -54,10 +59,12 @@ public class GeneratorDetails : MonoBehaviour
             100 => current100GeneratorsPrice,
             _ => 0
         });
+
+        TryUnlockNextAchievement();
     }
 
     public void UpdateButtonsEnabled() {
-        var onions = PlayerDetails.instance.Onions;
+        var onions = playerDetails.Onions;
         SetButtonEnabled(buy1Button, onions >= currentGeneratorPrice);
         SetButtonEnabled(buy10Button, onions >= current10GeneratorsPrice);
         SetButtonEnabled(buy100Button, onions >= current100GeneratorsPrice);
@@ -77,7 +84,7 @@ public class GeneratorDetails : MonoBehaviour
 
     public double CalculatePrice(int entries = 1) {
         double price = 0d;
-        int owned = generatorAmount;
+        int owned = (int)generatorAmount;
         for (int i = 0; i < entries; ++i, ++owned) {
             price += generator.basePrice * System.Math.Pow(generator.coefficient, owned);
         }
@@ -88,5 +95,21 @@ public class GeneratorDetails : MonoBehaviour
         currentGeneratorPrice = (ulong)CalculatePrice(1);
         current10GeneratorsPrice = (ulong)CalculatePrice(10);
         current100GeneratorsPrice = (ulong)CalculatePrice(100);
+    }
+
+    public void TryUnlockNextAchievement() {
+        //todo: maybe do that in a loop so that we unlock all of the suitable achievements along the way
+        var nextAchievement = generatorAchievements.FirstOrDefault(a => a.unlocked == false);
+        if (nextAchievement == null) return;
+        var triggerData = new AchievementTriggerData() { 
+            generator = this.generator,
+            generatorAmount = this.generatorAmount
+        };
+        var success = nextAchievement.Unlock(triggerData);
+        if (success) {
+            //todo: show achievement popup here
+            //todo: also create a sliding animation for these bad boys
+            UIActions.instance.SpawnAchievementPopUp(nextAchievement);
+        }
     }
 }

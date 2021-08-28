@@ -7,9 +7,10 @@ public abstract class Achievement : ScriptableObject
     public string achievementName;
     public string achievementDescription;
     public string flavorText;
-    public AchievementTriggerData triggerData;
     public bool unlocked;
+    public System.DateTime unlockedAt;
+    public AchievementTriggerData triggerData;
     public Sprite achievementIcon;
 
-    public abstract void Unlock(AchievementTriggerData triggerData);
+    public abstract bool Unlock(AchievementTriggerData triggerData);
 }

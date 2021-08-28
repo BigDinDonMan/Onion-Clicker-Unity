@@ -24,10 +24,10 @@ public class OnionGenerator : ScriptableObject
     }
 
     public static bool operator==(OnionGenerator gen1, OnionGenerator gen2) {
-        return gen1.generatorName == gen2.generatorName;
+        return gen1?.generatorName == gen2?.generatorName;
     }
 
     public static bool operator!=(OnionGenerator gen1, OnionGenerator gen2) {
-        return gen1.generatorName != gen2.generatorName;
+        return gen1?.generatorName != gen2?.generatorName;
     }
 }

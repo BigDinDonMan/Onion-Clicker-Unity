@@ -26,6 +26,11 @@ public class IncomeManager : MonoBehaviour
         var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime) * PlayerDetails.instance.GlobalIncomeMultiplier;
         PlayerDetails.instance.ChangeOnions(totalFrameIncome);
         generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            PlayerDetails.instance.ChangeOnions(100);
+        }
+#endif
     }
 
     public void UpdateDisplay() {

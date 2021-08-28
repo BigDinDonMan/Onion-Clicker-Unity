@@ -2326,6 +2326,14 @@ PrefabInstance:
       propertyPath: generator
       value: 
       objectReference: {fileID: 11400000, guid: c554f73b5e03e1e40aa7b5642f957b38, type: 2}
+    - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
+      propertyPath: generatorAchievements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
+      propertyPath: generatorAchievements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a18a248a50a466347b439fff71116cba, type: 2}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

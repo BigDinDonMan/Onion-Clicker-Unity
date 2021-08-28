@@ -10,6 +10,10 @@ public class UIActions : MonoBehaviour
     public GameObject clickIncomeTextPrefab;
     public Canvas canvas;
 
+    private void Awake() {
+        instance = this;
+    }
+
     public void SpawnTextOnClick() {
         var clickPosition = Input.mousePosition;
         var textObject = Instantiate(clickIncomeTextPrefab, clickPosition, Quaternion.identity, canvas.transform);

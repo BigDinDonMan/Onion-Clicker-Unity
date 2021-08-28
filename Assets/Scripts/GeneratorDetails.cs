@@ -32,6 +32,7 @@ public class GeneratorDetails : MonoBehaviour
 
 
     private void Awake() {
+        playerDetails = PlayerDetails.instance;
         RecalculatePrices();
         incomePerGenerator = generator.baseIncome;
         UpdateGeneratorUI();
@@ -60,7 +61,7 @@ public class GeneratorDetails : MonoBehaviour
             _ => 0
         });
 
-        TryUnlockNextAchievement();
+        TryUnlockAchievements();
     }
 
     public void UpdateButtonsEnabled() {
@@ -97,19 +98,21 @@ public class GeneratorDetails : MonoBehaviour
         current100GeneratorsPrice = (ulong)CalculatePrice(100);
     }
 
-    public void TryUnlockNextAchievement() {
+    public void TryUnlockAchievements() {
         //todo: maybe do that in a loop so that we unlock all of the suitable achievements along the way
-        var nextAchievement = generatorAchievements.FirstOrDefault(a => a.unlocked == false);
-        if (nextAchievement == null) return;
+        var unlockableAchievements = generatorAchievements.Where(a => a.unlocked == false);
         var triggerData = new AchievementTriggerData() { 
             generator = this.generator,
             generatorAmount = this.generatorAmount
         };
-        var success = nextAchievement.Unlock(triggerData);
-        if (success) {
-            //todo: show achievement popup here
-            //todo: also create a sliding animation for these bad boys
-            UIActions.instance.SpawnAchievementPopUp(nextAchievement);
+        foreach (var achievement in unlockableAchievements) {
+            var unlockSuccess = achievement.Unlock(triggerData);
+            if (unlockSuccess) {
+                //todo: show achievement popup here
+                //todo: also create a sliding animation for these bad boys
+                Debug.Log($"Unlocked achievement: {achievement.achievementName}, at: {achievement.unlockedAt}");
+                UIActions.instance.SpawnAchievementPopUp(achievement);
+            }
         }
     }
 }

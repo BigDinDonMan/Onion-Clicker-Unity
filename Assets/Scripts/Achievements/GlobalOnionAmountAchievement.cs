@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Achievement Data", menuName = "Achievements/Total Onion Amount Achievement")]
 public class GlobalOnionAmountAchievement : Achievement {
     public override bool Unlock(AchievementTriggerData triggerData) {
         if (unlocked) return false;

@@ -45,6 +45,7 @@ public class GeneratorDetails : MonoBehaviour
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
             current100GeneratorsPrice = (ulong)CalculatePrice(100);
+            UpdateGeneratorUI();
         }
 
         HandleBuy(amount switch {

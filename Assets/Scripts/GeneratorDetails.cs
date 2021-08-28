@@ -79,7 +79,7 @@ public class GeneratorDetails : MonoBehaviour
         double price = 0d;
         int owned = generatorAmount;
         for (int i = 0; i < entries; ++i, ++owned) {
-            price += generator.basePrice;
+            price += generator.basePrice * System.Math.Pow(generator.coefficient, owned);
         }
         return price;
     }

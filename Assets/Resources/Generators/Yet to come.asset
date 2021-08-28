@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
   m_Name: Yet to come
   m_EditorClassIdentifier: 
-  generatorName: Yet to come
+  generatorName: 
+  description: 
   basePrice: 10
   baseIncome: 0.2
   coefficient: 1.05

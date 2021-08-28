@@ -21,7 +21,7 @@ public class PlayerDetails : MonoBehaviour
     private double incomeMultiplier = 1d;
     public double GlobalIncomeMultiplier { get => incomeMultiplier; }
 
-    public double TotalOnions = 0d;
+    public double TotalOnionsEarned = 0d;
     public double TotalOnionsSpent = 0d;
 
     public void IncreaseMultiplier(double diff) {
@@ -33,12 +33,17 @@ public class PlayerDetails : MonoBehaviour
     }
 
     public void AddClickIncome() {
-        onions += clickIncome;
+        ChangeOnions(clickIncome);
         OnOnionsChanged?.Invoke();
     }
 
     public void ChangeOnions(double change) {
-        this.onions += change;
+        onions += change;
+        if (change < 0) {
+            TotalOnionsSpent += System.Math.Abs(change);
+        } else {
+            TotalOnionsEarned += change;
+        }
         OnOnionsChanged?.Invoke();
     }
 }

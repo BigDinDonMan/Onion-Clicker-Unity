@@ -22,7 +22,5 @@ public class ToggleButton : MonoBehaviour
         button = GetComponent<Button>();
         image = GetComponent<Image>();
         originalIdleColor = button.colors.normalColor;
-
-        button.onClick.AddListener(() => Selected = !Selected);
     }
 }

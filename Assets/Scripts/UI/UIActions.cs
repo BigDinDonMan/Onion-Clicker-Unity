@@ -10,6 +10,7 @@ public class UIActions : MonoBehaviour
     public float popUpHideTime;
 
     public GameObject achievementPopUpsParent;
+    public StackedNotifications stackedNotifications;
 
     public GameObject achievementPopUpPrefab;
     public GameObject clickIncomeTextPrefab;
@@ -17,6 +18,7 @@ public class UIActions : MonoBehaviour
 
     private void Awake() {
         instance = this;
+        stackedNotifications = achievementPopUpsParent.GetComponent<StackedNotifications>();
     }
 
     public void SpawnTextOnClick() {
@@ -28,7 +30,6 @@ public class UIActions : MonoBehaviour
 
     public void SpawnAchievementPopUp(Achievement achievement) {
         var popUp = Instantiate(achievementPopUpPrefab, achievementPopUpsParent.transform);
-        //popUp.GetComponent();
         StartCoroutine(HideAchievementPopUp(popUp));
     }
 

@@ -16,36 +16,49 @@ public class IncomeManager : MonoBehaviour
 
     private WaitForSeconds achievementWaitTime;
 
+    private PlayerDetails playerDetails;
+
     private void Awake() {
+        playerDetails = PlayerDetails.instance;
         achievementWaitTime = new WaitForSeconds(10f / 60f); //wait 10 frames
     }
 
     void Start()
     {
         generatorDetailsList.AddRange(detailsParent.GetComponentsInChildren<GeneratorDetails>());
-        PlayerDetails.instance.OnOnionsChanged += this.UpdateDisplay;
+        playerDetails.OnOnionsChanged += this.UpdateDisplay;
         UpdateDisplay();
         StartCoroutine(CheckForGlobalAchievements());
     }
 
     void Update()
     {
-        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime) * PlayerDetails.instance.GlobalIncomeMultiplier;
-        PlayerDetails.instance.ChangeOnions(totalFrameIncome);
-        generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
+        CalculateFrameIncome();
+        CheckForGeneratorUnlock();
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space)) {
-            PlayerDetails.instance.ChangeOnions(100);
+            playerDetails.ChangeOnions(100);
             generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
         }
 #endif
     }
 
     public void UpdateDisplay() {
-        var currentOnionsStr = $"{PlayerDetails.instance.Onions:0} onions";
+        var currentOnionsStr = $"{playerDetails.Onions:0} onions";
         var onionsPerSecondStr = $"{generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator):0.0} onions per second";
         onionsPerSecondText.text = onionsPerSecondStr;
         currentOnionsText.text = currentOnionsStr;
+    }
+
+    private void CalculateFrameIncome() {
+        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime) * playerDetails.GlobalIncomeMultiplier;
+        playerDetails.ChangeOnions(totalFrameIncome);
+        generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
+    }
+
+    private void CheckForGeneratorUnlock() {
+
     }
 
     private IEnumerator CheckForGlobalAchievements() {
@@ -54,9 +67,9 @@ public class IncomeManager : MonoBehaviour
             var unlockableAchievements = globalTypeAchievements.Where(a => a.unlocked == false);
             var triggerData = new AchievementTriggerData() {
                 totalGeneratorAmount = (uint)generatorDetailsList.Sum(detail => detail.generatorAmount),
-                totalClickOnions = PlayerDetails.instance.TotalOnionsClicked,
-                totalClicks = PlayerDetails.instance.TotalClicks,
-                totalOnions = PlayerDetails.instance.TotalOnionsEarned
+                totalClickOnions = playerDetails.TotalOnionsClicked,
+                totalClicks = playerDetails.TotalClicks,
+                totalOnions = playerDetails.TotalOnionsEarned
             };
             foreach (var achievement in unlockableAchievements) {
                 var success = achievement.Unlock(triggerData);

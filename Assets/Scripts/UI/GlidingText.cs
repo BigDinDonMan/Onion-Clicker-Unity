@@ -12,6 +12,7 @@ public class GlidingText : MonoBehaviour
     public float currentTimer;
     public float movementSpeed;
     public float lerpCoef = 0.01f;
+    public float eps = 0.0001f;
 
     private void Awake() {
         currentTimer = disappearTimer;
@@ -26,8 +27,8 @@ public class GlidingText : MonoBehaviour
         } else {
             text.alpha = Mathf.Lerp(text.alpha, 0f, lerpCoef);
             image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(image.color.a, 0f, lerpCoef));
-            if (Mathf.Approximately(text.alpha, 0f) && Mathf.Approximately(image.color.a, 0f)) {
-                Destroy(this.gameObject, 1f);
+            if (text.alpha <= eps && image.color.a <= eps) {
+                Destroy(this.gameObject);
             }
         }
         transform.position = new Vector3(transform.position.x, transform.position.y + movementSpeed * Time.deltaTime, transform.position.z);

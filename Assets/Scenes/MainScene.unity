@@ -1679,8 +1679,10 @@ MonoBehaviour:
   onions: 0
   clickIncome: 1
   incomeMultiplier: 1
+  TotalClicks: 0
   TotalOnionsEarned: 0
   TotalOnionsSpent: 0
+  TotalOnionsClicked: 0
 --- !u!1 &1146782314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,27 +2172,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 63.079987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 167.69997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416554272337209077, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 647773105480513825, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2326,27 +2328,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 63.079987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31.539993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2911127879133010558, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3073913794112783524, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_Name
@@ -2366,27 +2368,27 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a18a248a50a466347b439fff71116cba, type: 2}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 63.079987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 99.61998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835135220216256967, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
@@ -3140,7 +3142,8 @@ MonoBehaviour:
   currentOnionsText: {fileID: 573944142}
   onionsPerSecondText: {fileID: 1998581771}
   generatorDetailsList: []
-  globalTypeAchievements: []
+  globalTypeAchievements:
+  - {fileID: 11400000, guid: a850cd97d4304104ea2e461fd685d57a, type: 2}
 --- !u!4 &2064747051
 Transform:
   m_ObjectHideFlags: 0
@@ -3184,6 +3187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd4bb57ff1946743bcafe804bc3d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpHideTime: 5
+  achievementPopUpsParent: {fileID: 0}
+  achievementPopUpPrefab: {fileID: 0}
   clickIncomeTextPrefab: {fileID: 3361602670129477784, guid: aa3de2e1ae7599f4b8bec12a1c123cc0, type: 3}
   canvas: {fileID: 1612655102}
 --- !u!4 &2126131504

@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   image: {fileID: 0}
-  disappearTimer: 4
+  disappearTimer: 1.5
   currentTimer: 0
   movementSpeed: 10
-  lerpCoef: 0.01
+  lerpCoef: 0.05

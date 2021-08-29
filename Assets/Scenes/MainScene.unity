@@ -2931,10 +2931,10 @@ RectTransform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
-  m_SizeDelta: {x: 100, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 493}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1953229547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,6 +2947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee27a2e4ae6fac4e95a43abbaf8f977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextPosition: {x: 0, y: 0, z: 0}
+  canvas: {fileID: 1612655102}
 --- !u!1 &1953263249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,6 +3208,7 @@ MonoBehaviour:
   generatorDetailsList: []
   globalTypeAchievements:
   - {fileID: 11400000, guid: a850cd97d4304104ea2e461fd685d57a, type: 2}
+  - {fileID: 11400000, guid: 44d2c5cbc7084844ca3ebf0836c30136, type: 2}
 --- !u!4 &2064747051
 Transform:
   m_ObjectHideFlags: 0
@@ -3251,6 +3254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpHideTime: 5
   achievementPopUpsParent: {fileID: 1953229545}
+  stackedNotifications: {fileID: 1953229547}
   achievementPopUpPrefab: {fileID: 13306073584924652, guid: 705341dd5f628654d9ba18383b2c53eb, type: 3}
   clickIncomeTextPrefab: {fileID: 3361602670129477784, guid: aa3de2e1ae7599f4b8bec12a1c123cc0, type: 3}
   canvas: {fileID: 1612655102}

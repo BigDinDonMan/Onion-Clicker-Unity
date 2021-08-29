@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIActions : MonoBehaviour
 {
@@ -29,12 +30,18 @@ public class UIActions : MonoBehaviour
     }
 
     public void SpawnAchievementPopUp(Achievement achievement) {
-        var popUp = Instantiate(achievementPopUpPrefab, achievementPopUpsParent.transform);
+        var popUp = Instantiate(achievementPopUpPrefab);
+        stackedNotifications.AddNotification(popUp);
+        var nameAndImageParent = popUp.transform.Find("NameAndImageParent");
+        var image = nameAndImageParent.GetComponentInChildren<Image>();
+        var text = nameAndImageParent.GetComponentInChildren<TextMeshProUGUI>();
+        image.sprite = achievement.achievementIcon;
+        text.text = achievement.achievementName;
         StartCoroutine(HideAchievementPopUp(popUp));
     }
 
     private IEnumerator HideAchievementPopUp(GameObject popup) {
         yield return new WaitForSeconds(popUpHideTime);
-        Destroy(popup);
+        stackedNotifications.RemoveNotification(popup);
     }
 }

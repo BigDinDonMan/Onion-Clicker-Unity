@@ -17,14 +17,18 @@ public class UIActions : MonoBehaviour
     public GameObject clickIncomeTextPrefab;
     public Canvas canvas;
 
+    private Camera gameCamera;
+
     private void Awake() {
         instance = this;
+        gameCamera = Camera.main;
         stackedNotifications = achievementPopUpsParent.GetComponent<StackedNotifications>();
     }
 
     public void SpawnTextOnClick() {
         var clickPosition = GetClickPosition();
-        var textObject = Instantiate(clickIncomeTextPrefab, clickPosition, Quaternion.identity, canvas.transform);
+        var worldPosition = gameCamera.ScreenToWorldPoint(clickPosition);
+        var textObject = Instantiate(clickIncomeTextPrefab, new Vector3(worldPosition.x, worldPosition.y, 0f), Quaternion.identity, canvas.transform);
         var glidingText = textObject.GetComponent<GlidingText>();
         glidingText.text.text = $"+{PlayerDetails.instance.ClickIncome}";
     }

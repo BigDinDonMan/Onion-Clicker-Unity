@@ -8,11 +8,13 @@ public class MainOnionButton : MonoBehaviour
     [SerializeField]
     private ParticleSystem buttonParticleSystem; //launch single burst on click
     private Animator onionAnimator; //reduce size and increase it back on click
+    private Camera gameCamera;
 
     public float rotationSpeed;
 
     void Awake()
     {
+        gameCamera = Camera.main;
         onionAnimator = GetComponent<Animator>();
     }
 
@@ -23,6 +25,8 @@ public class MainOnionButton : MonoBehaviour
 
     public void PlayShrinkAnimation() {
         onionAnimator.SetTrigger("startShrinking");
+        var particleObjectPosition = gameCamera.ScreenToWorldPoint(Input.mousePosition);
+        buttonParticleSystem.transform.position = particleObjectPosition;
         buttonParticleSystem.Play();
     }
 }

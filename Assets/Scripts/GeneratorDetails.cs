@@ -31,7 +31,7 @@ public class GeneratorDetails : MonoBehaviour
     public List<Achievement> generatorAchievements;
 
 
-    private void Awake() {
+    private void Start() {
         playerDetails = PlayerDetails.instance;
         RecalculatePrices();
         incomePerGenerator = generator.baseIncome;

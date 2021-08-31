@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class MainOnionButton : MonoBehaviour
 {
-    private Button button;
+    [SerializeField]
     private ParticleSystem buttonParticleSystem; //launch single burst on click
     private Animator onionAnimator; //reduce size and increase it back on click
 
-    void Start()
+    public float rotationSpeed;
+
+    void Awake()
     {
-        
+        onionAnimator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        
+        this.transform.Rotate(0f, 0f, Time.deltaTime * rotationSpeed);
+    }
+
+    public void PlayShrinkAnimation() {
+        onionAnimator.SetTrigger("startShrinking");
+        buttonParticleSystem.Play();
     }
 }

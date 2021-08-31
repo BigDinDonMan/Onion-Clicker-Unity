@@ -23,7 +23,7 @@ public class UIActions : MonoBehaviour
     }
 
     public void SpawnTextOnClick() {
-        var clickPosition = Input.mousePosition;
+        var clickPosition = GetClickPosition();
         var textObject = Instantiate(clickIncomeTextPrefab, clickPosition, Quaternion.identity, canvas.transform);
         var glidingText = textObject.GetComponent<GlidingText>();
         glidingText.text.text = $"+{PlayerDetails.instance.ClickIncome}";
@@ -38,6 +38,10 @@ public class UIActions : MonoBehaviour
         image.sprite = achievement.achievementIcon;
         text.text = achievement.achievementName;
         StartCoroutine(HideAchievementPopUp(popUp));
+    }
+
+    private Vector3 GetClickPosition() {
+        return Input.mousePosition;
     }
 
     private IEnumerator HideAchievementPopUp(GameObject popup) {

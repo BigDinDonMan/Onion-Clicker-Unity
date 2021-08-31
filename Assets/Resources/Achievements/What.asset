@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c92983df7e9ea4995383441f72b00a, type: 3}
   m_Name: What
   m_EditorClassIdentifier: 
+  ID: 2
   achievementName: What
   achievementDescription: 
   flavorText: 
-  unlocked: 1
   triggerData:
     totalOnions: 0
     generatorAmount: 0

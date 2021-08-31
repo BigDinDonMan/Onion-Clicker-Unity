@@ -13,5 +13,5 @@ public class SavedState
     }
 
     public List<GeneratorState> boughtGeneratorsData;
-    public List<string> unlockedAchievementsData;
+    public List<AchievementUnlockData> unlockedAchievementsData;
 }

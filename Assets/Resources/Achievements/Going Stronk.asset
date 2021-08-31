@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c92983df7e9ea4995383441f72b00a, type: 3}
   m_Name: Going Stronk
   m_EditorClassIdentifier: 
+  ID: 1
   achievementName: Going Stronk
   achievementDescription: Click 25 times
   flavorText: 
-  unlocked: 1
   triggerData:
     totalOnions: 0
     generatorAmount: 0

@@ -63,7 +63,6 @@ public class IncomeManager : MonoBehaviour
 
     private IEnumerator CheckForGlobalAchievements() {
         while (true) {
-            Debug.Log("checking for achievements...");
             var unlockableAchievements = globalTypeAchievements.Where(a => a.unlocked == false);
             var triggerData = new AchievementTriggerData() {
                 totalGeneratorAmount = (uint)generatorDetailsList.Sum(detail => detail.generatorAmount),
@@ -74,13 +73,18 @@ public class IncomeManager : MonoBehaviour
             foreach (var achievement in unlockableAchievements) {
                 var success = achievement.Unlock(triggerData);
                 if (success) {
-                    //todo: show achievement popup here
-                    //todo: also create a sliding animation for these bad boys
-                    Debug.Log($"Unlocked achievement: {achievement.achievementName}, at: {achievement.unlockedAt}");
                     UIActions.instance.SpawnAchievementPopUp(achievement);
                 }
             }
             yield return achievementWaitTime;
         }
+    }
+
+    private IEnumerator CheckForGeneratorsUnlock() {
+        yield return null;
+    }
+
+    private IEnumerator CheckForUpgradesUnlock() {
+        yield return null;
     }
 }

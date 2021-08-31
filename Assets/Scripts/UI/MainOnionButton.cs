@@ -16,6 +16,7 @@ public class MainOnionButton : MonoBehaviour
     {
         gameCamera = Camera.main;
         onionAnimator = GetComponent<Animator>();
+        buttonParticleSystem.transform.position = this.transform.position;
     }
 
     void Update()
@@ -25,8 +26,6 @@ public class MainOnionButton : MonoBehaviour
 
     public void PlayShrinkAnimation() {
         onionAnimator.SetTrigger("startShrinking");
-        var particleObjectPosition = gameCamera.ScreenToWorldPoint(Input.mousePosition);
-        buttonParticleSystem.transform.position = particleObjectPosition;
         buttonParticleSystem.Play();
     }
 }

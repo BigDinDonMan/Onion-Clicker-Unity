@@ -63,7 +63,7 @@ public class IncomeManager : MonoBehaviour
 
     private IEnumerator CheckForGlobalAchievements() {
         while (true) {
-            var unlockableAchievements = globalTypeAchievements.Where(a => a.unlocked == false);
+            var unlockableAchievements = globalTypeAchievements.Where(a => AchievementManager.instance.IsUnlocked(a) == false);
             var triggerData = new AchievementTriggerData() {
                 totalGeneratorAmount = (uint)generatorDetailsList.Sum(detail => detail.generatorAmount),
                 totalClickOnions = playerDetails.TotalOnionsClicked,

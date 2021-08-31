@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Achievement Data", menuName = "Achievements/Click Amount Achievement")]
 public class ClickAmountAchievement : Achievement {
     public override bool Unlock(AchievementTriggerData triggerData) {
-        if (unlocked) return false;
+        if (AchievementManager.instance.IsUnlocked(this)) return false;
 
         if (triggerData.totalClicks >= this.triggerData.totalClicks) {
             UnlockInternal();

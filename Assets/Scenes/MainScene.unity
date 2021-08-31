@@ -5334,8 +5334,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 462596220}
+  - component: {fileID: 462596221}
   m_Layer: 0
-  m_Name: AchievementsList
+  m_Name: AchievementsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5355,6 +5356,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &462596221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462596219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5054b52b7bb9b2f4084022d5ff88838a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483584034
 GameObject:
   m_ObjectHideFlags: 0
@@ -8604,7 +8617,7 @@ MonoBehaviour:
   globalTypeAchievements:
   - {fileID: 11400000, guid: a850cd97d4304104ea2e461fd685d57a, type: 2}
   - {fileID: 11400000, guid: 44d2c5cbc7084844ca3ebf0836c30136, type: 2}
-  - {fileID: 11400000, guid: a18a248a50a466347b439fff71116cba, type: 2}
+  - {fileID: 11400000, guid: 2d3c7b7465b370e4dbbe172ff02b8f65, type: 2}
 --- !u!4 &2064747051
 Transform:
   m_ObjectHideFlags: 0

@@ -99,7 +99,7 @@ public class GeneratorDetails : MonoBehaviour
     }
 
     public void TryUnlockAchievements() {
-        var unlockableAchievements = generatorAchievements.Where(a => a.unlocked == false);
+        var unlockableAchievements = generatorAchievements.Where(a => AchievementManager.instance.IsUnlocked(a) == false);
         var triggerData = new AchievementTriggerData() { 
             generator = this.generator,
             generatorAmount = this.generatorAmount
@@ -109,7 +109,7 @@ public class GeneratorDetails : MonoBehaviour
             if (unlockSuccess) {
                 //todo: show achievement popup here
                 //todo: also create a sliding animation for these bad boys
-                Debug.Log($"Unlocked achievement: {achievement.achievementName}, at: {achievement.unlockedAt}");
+                //Debug.Log($"Unlocked achievement: {achievement.achievementName}, at: {achievement.unlockedAt}");
                 UIActions.instance.SpawnAchievementPopUp(achievement);
             }
         }

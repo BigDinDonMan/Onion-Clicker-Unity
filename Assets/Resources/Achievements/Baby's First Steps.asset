@@ -15,7 +15,7 @@ MonoBehaviour:
   achievementName: Baby's First Steps
   achievementDescription: Click 10 times
   flavorText: 
-  unlocked: 0
+  unlocked: 1
   triggerData:
     totalOnions: 0
     generatorAmount: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   achievementName: What
   achievementDescription: 
   flavorText: 
-  unlocked: 0
+  unlocked: 1
   triggerData:
     totalOnions: 0
     generatorAmount: 0

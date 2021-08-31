@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ClickIncomeAchievement : Achievement {
     public override bool Unlock(AchievementTriggerData triggerData) {
-        if (unlocked) return false;
+        if (AchievementManager.instance.IsUnlocked(this)) return false;
 
         if (triggerData.totalClickOnions >= this.triggerData.totalClickOnions) {
             UnlockInternal();

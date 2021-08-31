@@ -26,7 +26,7 @@ public class UIActions : MonoBehaviour
     }
 
     public void SpawnTextOnClick() {
-        var clickPosition = GetClickPosition();
+        var clickPosition = Input.mousePosition;
         var worldPosition = gameCamera.ScreenToWorldPoint(clickPosition);
         var textObject = Instantiate(clickIncomeTextPrefab, new Vector3(worldPosition.x, worldPosition.y, 0f), Quaternion.identity, canvas.transform);
         var glidingText = textObject.GetComponent<GlidingText>();
@@ -42,10 +42,6 @@ public class UIActions : MonoBehaviour
         image.sprite = achievement.achievementIcon;
         text.text = achievement.achievementName;
         StartCoroutine(HideAchievementPopUp(popUp));
-    }
-
-    private Vector3 GetClickPosition() {
-        return Input.mousePosition;
     }
 
     private IEnumerator HideAchievementPopUp(GameObject popup) {

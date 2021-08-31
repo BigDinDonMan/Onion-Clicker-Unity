@@ -15,7 +15,7 @@ MonoBehaviour:
   achievementName: Going Stronk
   achievementDescription: Click 25 times
   flavorText: 
-  unlocked: 1
+  unlocked: 0
   triggerData:
     totalOnions: 0
     generatorAmount: 0

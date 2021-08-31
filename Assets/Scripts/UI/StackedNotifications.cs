@@ -16,8 +16,10 @@ public class StackedNotifications : MonoBehaviour
 
     public void AddNotification(GameObject notificationObject) {
         var rectTransform = notificationObject.transform as RectTransform;
-        notificationObject.transform.position = nextPosition;
+        var scale = notificationObject.transform.localScale;
         notificationObject.transform.SetParent(this.transform);
+        notificationObject.transform.localScale = scale;
+        notificationObject.transform.localPosition = nextPosition;
         //todo: get animator and set it off to next position :)
         nextPosition = new Vector3(nextPosition.x, nextPosition.y + rectTransform.rect.height * rectTransform.localScale.y, nextPosition.z);
     }
@@ -27,9 +29,10 @@ public class StackedNotifications : MonoBehaviour
         var rectTransform = notificationObject.transform as RectTransform;
         var positionDiff = rectTransform.rect.height * rectTransform.localScale.y;
         foreach (Transform child in this.transform) {
-            child.position = new Vector3(child.position.x, child.position.y - positionDiff, child.position.z);
+            child.localPosition = new Vector3(child.localPosition.x, child.localPosition.y - positionDiff, child.localPosition.z);
         }
-        //var rectTransform = notificationObject.transform as RectTransform;
+        var lastChildPosition = transform.GetChild(transform.childCount - 1).localPosition;
+        nextPosition = new Vector3(lastChildPosition.x, lastChildPosition.y + positionDiff, lastChildPosition.z);
         //nextPosition = new Vector3(nextPosition.x, nextPosition.y - rectTransform.rect.height * rectTransform.localScale.y, nextPosition.z);
     }
 }

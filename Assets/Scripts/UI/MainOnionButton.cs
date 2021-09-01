@@ -7,8 +7,11 @@ public class MainOnionButton : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem buttonParticleSystem; //launch single burst on click
+    private List<ParticleSystem> particleSystems;
     private Animator onionAnimator; //reduce size and increase it back on click
     private Camera gameCamera;
+
+    public Texture2D cursorTexture;
 
     public float rotationSpeed;
 
@@ -17,6 +20,8 @@ public class MainOnionButton : MonoBehaviour
         gameCamera = Camera.main;
         onionAnimator = GetComponent<Animator>();
         buttonParticleSystem.transform.position = this.transform.position;
+        particleSystems = new List<ParticleSystem>() { buttonParticleSystem };
+        particleSystems.AddRange(buttonParticleSystem.gameObject.GetComponentsInChildren<ParticleSystem>());
     }
 
     void Update()
@@ -26,6 +31,16 @@ public class MainOnionButton : MonoBehaviour
 
     public void PlayShrinkAnimation() {
         onionAnimator.SetTrigger("startShrinking");
-        buttonParticleSystem.Play();
+        particleSystems.ForEach(ps => ps.Play());
+    }
+
+    public void OnMouseEnter() {
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        Debug.Log("henlo");
+    }
+
+    public void OnMouseExit() {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        Debug.Log("hi");
     }
 }

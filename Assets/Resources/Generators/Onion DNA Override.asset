@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
   m_Name: Onion DNA Override
   m_EditorClassIdentifier: 
+  ID: 3
   generatorName: DNA Override Station
   description: Overrides other vegetables' DNA with that of an onion
   basePrice: 0
   baseIncome: 0
   coefficient: 0
+  unlockedAtTotalOnions: 0
   generatorIcon: {fileID: 0}

@@ -46,13 +46,13 @@ public class IncomeManager : MonoBehaviour
 
     public void UpdateDisplay() {
         var currentOnionsStr = $"{playerDetails.Onions:0} onions";
-        var onionsPerSecondStr = $"{generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator):0.0} onions per second";
+        var onionsPerSecondStr = $"{generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator * genDetails.TotalMultiplier):0.0} onions per second";
         onionsPerSecondText.text = onionsPerSecondStr;
         currentOnionsText.text = currentOnionsStr;
     }
 
     private void CalculateFrameIncome() {
-        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime * detail.incomeGeneratorMultiplier) * playerDetails.GlobalIncomeMultiplier;
+        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime * detail.TotalMultiplier) * playerDetails.GlobalIncomeMultiplier;
         playerDetails.ChangeOnions(totalFrameIncome);
         generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Income/Generators", fileName = "New Income Generator")]
 public class OnionGenerator : ScriptableObject
 {
+    public ulong ID;
     public string generatorName;
     public string description;
     public int basePrice;
@@ -16,19 +17,19 @@ public class OnionGenerator : ScriptableObject
     public override bool Equals(object other) {
         if (ReferenceEquals(other, this)) return true;
         if (other is OnionGenerator gen)
-            return gen.generatorName == this.generatorName;
+            return gen.ID == this.ID;
         return false;
     }
 
     public override int GetHashCode() {
-        return generatorName.GetHashCode();
+        return ID.GetHashCode();
     }
 
     public static bool operator==(OnionGenerator gen1, OnionGenerator gen2) {
-        return gen1?.generatorName == gen2?.generatorName;
+        return gen1?.ID == gen2?.ID;
     }
 
     public static bool operator!=(OnionGenerator gen1, OnionGenerator gen2) {
-        return gen1?.generatorName != gen2?.generatorName;
+        return !(gen1?.ID == gen2?.ID);
     }
 }

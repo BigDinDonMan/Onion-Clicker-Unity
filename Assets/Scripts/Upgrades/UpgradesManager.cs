@@ -20,12 +20,27 @@ public class UpgradesManager : MonoBehaviour
         playerDetails = PlayerDetails.instance;
     }
 
-    public void Unlock() {
+    public void Unlock(GameUpgrade upgrade) {
 
     }
 
-    public void Buy() {
+    public void Buy(GameUpgrade upgrade) {
+        if (IsBought(upgrade)) return;
+        boughtUpgrades.Add(upgrade);
+        unlockedUpgrades.Remove(upgrade);
 
+        switch (upgrade.upgradeType) {
+            case GameUpgrade.UpgradeType.Click:
+                break;
+            case GameUpgrade.UpgradeType.Generator:
+                break;
+            case GameUpgrade.UpgradeType.IncreasePerNGenerators:
+                break;
+            case GameUpgrade.UpgradeType.GlobalIncreasePerNGenerators:
+                break;
+            case GameUpgrade.UpgradeType.Global:
+                break;
+        }
     }
 
     public bool IsUnlocked(GameUpgrade upgrade) {

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
   m_Name: Swamp Plantation
   m_EditorClassIdentifier: 
+  ID: 1
   generatorName: 
   description: 
   basePrice: 0

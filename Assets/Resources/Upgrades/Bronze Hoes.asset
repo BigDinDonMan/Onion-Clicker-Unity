@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
-  m_Name: Ogre Workers
+  m_Name: Bronze Hoes
   m_EditorClassIdentifier: 
-  upgradeType: 2
+  upgradeType: 1
   targetGeneratorID: 0
-  increasePerNOfGeneratorID: 0
-  upgradeName: 
-  description: 
-  flavorText: 
-  upgradeCost: 0
-  multiplier: 0
+  increasePerNOfGeneratorID: 99999999
+  upgradeName: Bronze Hoes
+  description: Increases Farm efficiency <b></b>
+  flavorText: Almost as good as iron ones
+  upgradeCost: 1000
+  multiplier: 2
   upgradeIcon: {fileID: 0}

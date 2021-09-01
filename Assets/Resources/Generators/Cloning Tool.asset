@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
   m_Name: Cloning Tool
   m_EditorClassIdentifier: 
+  ID: 4
   generatorName: Onion Cloning Tool
   description: Simply clones onions... guess the name was right
   basePrice: 0
   baseIncome: 0
   coefficient: 0
+  unlockedAtTotalOnions: 0
   generatorIcon: {fileID: 0}

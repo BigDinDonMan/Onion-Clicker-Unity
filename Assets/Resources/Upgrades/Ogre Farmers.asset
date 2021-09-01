@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83976f92e271b4147a7f1bc7ea300e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
   m_Name: Ogre Farmers
   m_EditorClassIdentifier: 
+  upgradeType: 2
+  targetGeneratorID: 0
+  increasePerNOfGeneratorID: 0
   upgradeName: 
-  upgradableName: 
   description: 
   flavorText: 
   upgradeCost: 0
+  multiplier: 0
   upgradeIcon: {fileID: 0}
-  unlockedAtOwnedGenerators: 0
-  multiplierIncrease: 0

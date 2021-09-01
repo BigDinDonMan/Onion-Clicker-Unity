@@ -13,6 +13,8 @@ public class GeneratorDetails : MonoBehaviour
     public ulong current100GeneratorsPrice;
     public double incomePerGenerator;
     public double incomeGeneratorMultiplier = 1d;
+    public double addedGeneratorMultiplier = 0d;
+    public double TotalMultiplier { get => addedGeneratorMultiplier + incomeGeneratorMultiplier; }
 
     public Button buy1Button;
     public TextMeshProUGUI buy1ButtonText;

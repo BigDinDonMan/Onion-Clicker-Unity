@@ -18,6 +18,8 @@ public class UIActions : MonoBehaviour
     public GameObject savePopUpPrefab;
     public GameObject generatorUpgradeDetailsWindowPrefab;
 
+    public GameObject upgradesBuyParent;
+
     public Canvas canvas;
 
     private Camera gameCamera;
@@ -52,7 +54,8 @@ public class UIActions : MonoBehaviour
     }
 
     public void SpawnGeneratorUpgradeDetailsWindow(GameUpgrade upgrade) {
-
+        var upgradeDetails = Instantiate(generatorUpgradeDetailsWindowPrefab, upgradesBuyParent.transform);
+        upgradeDetails.GetComponent<BuyUpgradeWindow>().SetUpgrade(upgrade);
     }
 
     private IEnumerator HideAchievementPopUp(GameObject popup) {

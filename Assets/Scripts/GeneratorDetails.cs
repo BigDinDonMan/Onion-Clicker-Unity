@@ -29,7 +29,9 @@ public class GeneratorDetails : MonoBehaviour
     private PlayerDetails playerDetails;
 
     public List<Achievement> generatorAchievements;
+    public List<GameUpgrade> generatorUpgrades;
 
+    private event System.Action OnBuy;
 
     private void Start() {
         playerDetails = PlayerDetails.instance;
@@ -39,6 +41,9 @@ public class GeneratorDetails : MonoBehaviour
         buy1Button.onClick.AddListener(() => Buy());
         buy10Button.onClick.AddListener(() => Buy(10));
         buy100Button.onClick.AddListener(() => Buy(100));
+        OnBuy += this.TryUnlockAchievements;
+        OnBuy += this.TryUnlockUpgrades;
+        OnBuy += this.UpdateGeneratorUI;
     }
 
     public void Buy(uint amount = 1) {
@@ -51,7 +56,6 @@ public class GeneratorDetails : MonoBehaviour
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
             current100GeneratorsPrice = (ulong)CalculatePrice(100);
-            UpdateGeneratorUI();
         }
 
         HandleBuy(amount switch {
@@ -61,7 +65,7 @@ public class GeneratorDetails : MonoBehaviour
             _ => 0
         });
 
-        TryUnlockAchievements();
+        OnBuy?.Invoke();
     }
 
     public void UpdateButtonsEnabled() {
@@ -109,6 +113,15 @@ public class GeneratorDetails : MonoBehaviour
             if (unlockSuccess) {
                 //todo: also create a sliding animation for these bad boys
                 UIActions.instance.SpawnAchievementPopUp(achievement);
+            }
+        }
+    }
+
+    public void TryUnlockUpgrades() {
+        var unlockableUpgrades = generatorUpgrades.Where(u => UpgradesManager.instance.IsUnlocked(u) == false);
+        foreach (var upgrade in unlockableUpgrades) {
+            if (generatorAmount >= upgrade.unlockedAtGenerators) {
+                UpgradesManager.instance.Unlock(upgrade);
             }
         }
     }

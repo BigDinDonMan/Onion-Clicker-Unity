@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
-  m_Name: Bronze Hoes
+  m_Name: Stronger Cursor
   m_EditorClassIdentifier: 
-  upgradeType: 1
+  upgradeType: 0
   targetGeneratorID: 0
-  increasePerNOfGeneratorID: 99999999
-  upgradeName: Bronze Hoes
-  description: Increases Farm efficiency <b>twice</b>
-  flavorText: Almost as good as iron ones
-  upgradeCost: 1000
+  increasePerNOfGeneratorID: 0
+  upgradeName: Stronger Cursor
+  description: Clicking generates <b>twice</b> as many onions
+  flavorText: For those that really enjoy clicking
+  upgradeCost: 750
   multiplier: 2
   unlockedAtTotalOnions: -1
-  unlockedAtGenerators: 10
+  unlockedAtGenerators: 999999
   unlockedAtTotalGenerators: 999999
-  unlockedAtTotalClicks: 999999
+  unlockedAtTotalClicks: 50
   upgradeIcon: {fileID: 0}

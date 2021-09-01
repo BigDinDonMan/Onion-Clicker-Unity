@@ -13,14 +13,15 @@ public class IncomeManager : MonoBehaviour
     public List<GeneratorDetails> generatorDetailsList;
 
     public List<Achievement> globalTypeAchievements;
+    public List<GameUpgrade> globalUpgrades;
 
-    private WaitForSeconds achievementWaitTime;
+    private WaitForSeconds waitTime;
 
     private PlayerDetails playerDetails;
 
     private void Awake() {
         playerDetails = PlayerDetails.instance;
-        achievementWaitTime = new WaitForSeconds(10f / 60f); //wait 10 frames
+        waitTime = new WaitForSeconds(10f / 60f); //wait 10 frames
     }
 
     void Start()
@@ -29,6 +30,7 @@ public class IncomeManager : MonoBehaviour
         playerDetails.OnOnionsChanged += this.UpdateDisplay;
         UpdateDisplay();
         StartCoroutine(CheckForGlobalAchievements());
+        StartCoroutine(CheckForUpgradesUnlock());
     }
 
     void Update()
@@ -76,15 +78,29 @@ public class IncomeManager : MonoBehaviour
                     UIActions.instance.SpawnAchievementPopUp(achievement);
                 }
             }
-            yield return achievementWaitTime;
+            yield return waitTime;
         }
     }
 
     private IEnumerator CheckForGeneratorsUnlock() {
-        yield return null;
+        yield return waitTime;
     }
 
     private IEnumerator CheckForUpgradesUnlock() {
-        yield return null;
+        while (true) {
+            var lockedUpgrades = globalUpgrades.Where(u => UpgradesManager.instance.IsUnlocked(u) == false);
+            var totalGeneratorAmount = generatorDetailsList.Sum(detail => detail.generatorAmount);
+            var totalOnions = playerDetails.TotalOnionsEarned;
+            var totalClicks = playerDetails.TotalClicks;
+            var upgradeData = new GlobalUpgradeTriggerData() { 
+                totalClicks = totalClicks,
+                totalOnions = totalOnions,
+                totalGeneratorsAmount = (ulong)totalGeneratorAmount
+            };
+            foreach (var upgrade in lockedUpgrades) {
+                UpgradesManager.instance.Unlock(upgrade, upgradeData);
+            }
+            yield return waitTime;
+        }
     }
 }

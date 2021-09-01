@@ -14,11 +14,15 @@ public class PlayerDetails : MonoBehaviour
     public event System.Action OnOnionsChanged;
 
     [SerializeField]
-    private int clickIncome;
-    public int ClickIncome { get => clickIncome; }
+    private double clickIncome = 1d;
+    public double ClickIncome { get => clickIncome; }
+
+    public void IncreaseClickIncome(double multiplier) {
+        clickIncome *= multiplier;
+    }
 
     [SerializeField]
-    private double incomeMultiplier = 1d;
+    private double incomeMultiplier = 1d; //this should not be multiplied; only added to
     public double GlobalIncomeMultiplier { get => incomeMultiplier; }
 
     public ulong TotalClicks = 0;

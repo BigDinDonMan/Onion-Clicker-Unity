@@ -5383,6 +5383,7 @@ MonoBehaviour:
   allUpgrades: []
   unlockedUpgrades: []
   boughtUpgrades: []
+  generatorDetails: []
 --- !u!1 &442492600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7808,6 +7809,14 @@ PrefabInstance:
       propertyPath: generator
       value: 
       objectReference: {fileID: 11400000, guid: 4b1581a3e70edfc44b4dcc49e4bc842e, type: 2}
+    - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
+      propertyPath: generatorUpgrades.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
+      propertyPath: generatorUpgrades.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7e45bd21f8d125418521c69ac80f247, type: 2}
     - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: generatorAchievements.Array.size
       value: 0
@@ -13761,6 +13770,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a850cd97d4304104ea2e461fd685d57a, type: 2}
   - {fileID: 11400000, guid: 44d2c5cbc7084844ca3ebf0836c30136, type: 2}
   - {fileID: 11400000, guid: 2d3c7b7465b370e4dbbe172ff02b8f65, type: 2}
+  globalUpgrades:
+  - {fileID: 11400000, guid: 67e7c6d904c791c458c81403d8104cab, type: 2}
 --- !u!4 &2064747051
 Transform:
   m_ObjectHideFlags: 0
@@ -13810,7 +13821,8 @@ MonoBehaviour:
   achievementPopUpPrefab: {fileID: 13306073584924652, guid: 705341dd5f628654d9ba18383b2c53eb, type: 3}
   clickIncomeTextPrefab: {fileID: 3361602670129477784, guid: aa3de2e1ae7599f4b8bec12a1c123cc0, type: 3}
   savePopUpPrefab: {fileID: 0}
-  generatorUpgradeDetailsWindowPrefab: {fileID: 0}
+  generatorUpgradeDetailsWindowPrefab: {fileID: 863383980762100346, guid: ef717714e8a0ff14fadb9ff6bc62680f, type: 3}
+  upgradesBuyParent: {fileID: 483584034}
   canvas: {fileID: 1612655102}
 --- !u!4 &2126131504
 Transform:

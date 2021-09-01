@@ -13,8 +13,9 @@ public class GeneratorDetails : MonoBehaviour
     public ulong current100GeneratorsPrice;
     public double incomePerGenerator;
     public double incomeGeneratorMultiplier = 1d;
+    public double increaseFromOtherGeneratorsMultiplier = 0d; //this will be recalculated after every change of generatorAmount after buying these stupid upgrades
     public double addedGeneratorMultiplier = 0d;
-    public double TotalMultiplier { get => addedGeneratorMultiplier + incomeGeneratorMultiplier; }
+    public double TotalMultiplier { get => addedGeneratorMultiplier + incomeGeneratorMultiplier + increaseFromOtherGeneratorsMultiplier; }
 
     public Button buy1Button;
     public TextMeshProUGUI buy1ButtonText;
@@ -32,6 +33,7 @@ public class GeneratorDetails : MonoBehaviour
     public List<GameUpgrade> generatorUpgrades;
 
     private event System.Action OnBuy;
+    public event System.Action<uint> OnGeneratorAmountChanged;
 
     private void Start() {
         playerDetails = PlayerDetails.instance;
@@ -53,6 +55,7 @@ public class GeneratorDetails : MonoBehaviour
 
             playerDetails.ChangeOnions(-currentPrice);
             generatorAmount += amount;
+            OnGeneratorAmountChanged?.Invoke(generatorAmount);
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
             current100GeneratorsPrice = (ulong)CalculatePrice(100);

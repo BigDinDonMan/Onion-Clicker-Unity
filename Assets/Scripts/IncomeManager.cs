@@ -52,7 +52,7 @@ public class IncomeManager : MonoBehaviour
     }
 
     private void CalculateFrameIncome() {
-        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime) * playerDetails.GlobalIncomeMultiplier;
+        var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime * detail.incomeGeneratorMultiplier) * playerDetails.GlobalIncomeMultiplier;
         playerDetails.ChangeOnions(totalFrameIncome);
         generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
     }

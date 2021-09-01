@@ -10,6 +10,5 @@ public class MenuFunctions : MonoBehaviour
 #else
         Application.Quit(exitCode: 0);
 #endif
-
     }
 }

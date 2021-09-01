@@ -36,11 +36,9 @@ public class MainOnionButton : MonoBehaviour
 
     public void OnMouseEnter() {
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
-        Debug.Log("henlo");
     }
 
     public void OnMouseExit() {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Debug.Log("hi");
     }
 }

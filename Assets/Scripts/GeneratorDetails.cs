@@ -1,12 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//todo: add a function that will simulate the cost of buying X (1, 10, 100) generators and will grey out or enable buttons as needed
-//todo: make an algorithm to increase the prices after buying generators
 public class GeneratorDetails : MonoBehaviour
 {
     public OnionGenerator generator;
@@ -15,6 +12,7 @@ public class GeneratorDetails : MonoBehaviour
     public ulong current10GeneratorsPrice;
     public ulong current100GeneratorsPrice;
     public double incomePerGenerator;
+    public double incomeGeneratorMultiplier = 1d;
 
     public Button buy1Button;
     public TextMeshProUGUI buy1ButtonText;
@@ -76,7 +74,7 @@ public class GeneratorDetails : MonoBehaviour
     public void UpdateGeneratorUI() {
         if (generator == null) return;
         amountText.text = $"{generatorAmount}x";
-        generatorNameText.text = generator.name;
+        generatorNameText.text = generator.generatorName;
         generatorImage.sprite = generator.generatorIcon;
         buy1ButtonText.text = $"Buy 1\n({currentGeneratorPrice} onions)";
         buy10ButtonText.text = $"Buy 10\n({current10GeneratorsPrice} onions)";
@@ -107,9 +105,7 @@ public class GeneratorDetails : MonoBehaviour
         foreach (var achievement in unlockableAchievements) {
             var unlockSuccess = achievement.Unlock(triggerData);
             if (unlockSuccess) {
-                //todo: show achievement popup here
                 //todo: also create a sliding animation for these bad boys
-                //Debug.Log($"Unlocked achievement: {achievement.achievementName}, at: {achievement.unlockedAt}");
                 UIActions.instance.SpawnAchievementPopUp(achievement);
             }
         }

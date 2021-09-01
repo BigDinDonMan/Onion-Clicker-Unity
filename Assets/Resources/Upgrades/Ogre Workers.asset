@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
-  m_Name: Onion Farm
+  m_Script: {fileID: 11500000, guid: 83976f92e271b4147a7f1bc7ea300e9a, type: 3}
+  m_Name: Ogre Workers
   m_EditorClassIdentifier: 
-  generatorName: Farm
-  description: Farms more onions from onion seeds
-  basePrice: 20
-  baseIncome: 1
-  coefficient: 1.12
-  unlockedAtTotalOnions: 0
-  generatorIcon: {fileID: 0}
+  upgradeName: 
+  upgradableName: 
+  description: 
+  flavorText: 
+  upgradeCost: 0
+  upgradeIcon: {fileID: 0}
+  unlockedAtOwnedGenerators: 0
+  multiplierIncrease: 0

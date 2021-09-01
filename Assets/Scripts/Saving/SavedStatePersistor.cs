@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SavedStatePersistor : MonoBehaviour
 {
-
+    public GameObject detailsParent;
     public List<GeneratorDetails> details;
     public List<Achievement> unlockedAchievements;
-    public List<GeneratorUpgrade> unlockedUpgrades;
-    public List<GeneratorUpgrade> boughtUpgrades;
+    public List<GameUpgrade> unlockedUpgrades;
+    public List<GameUpgrade> boughtUpgrades;
 
     [SerializeField]
     private float saveInterval;
@@ -16,6 +16,7 @@ public class SavedStatePersistor : MonoBehaviour
     private WaitForSeconds waitTime;
 
     private void Awake() {
+        details.AddRange(detailsParent.GetComponentsInChildren<GeneratorDetails>());
         waitTime = new WaitForSeconds(saveInterval);
     }
 
@@ -32,6 +33,7 @@ public class SavedStatePersistor : MonoBehaviour
             //save game here
             PersistData();
             //todo: show popup with "Game saved"
+            UIActions.instance.SpawnSavePopUp();
         }
     }
 

@@ -7131,6 +7131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf3dee5bec234044addfb499b00a70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detailsParent: {fileID: 9069590}
   details: []
   unlockedAchievements: []
   unlockedUpgrades: []
@@ -7806,7 +7807,7 @@ PrefabInstance:
     - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: generator
       value: 
-      objectReference: {fileID: 11400000, guid: c554f73b5e03e1e40aa7b5642f957b38, type: 2}
+      objectReference: {fileID: 11400000, guid: 4b1581a3e70edfc44b4dcc49e4bc842e, type: 2}
     - target: {fileID: 6125797812713648859, guid: 5243f5c062b2857429acf20c75eeb6a8, type: 3}
       propertyPath: generatorAchievements.Array.size
       value: 0
@@ -13804,10 +13805,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpHideTime: 5
-  achievementPopUpsParent: {fileID: 1953229545}
+  popUpsParent: {fileID: 1953229545}
   stackedNotifications: {fileID: 1953229547}
   achievementPopUpPrefab: {fileID: 13306073584924652, guid: 705341dd5f628654d9ba18383b2c53eb, type: 3}
   clickIncomeTextPrefab: {fileID: 3361602670129477784, guid: aa3de2e1ae7599f4b8bec12a1c123cc0, type: 3}
+  savePopUpPrefab: {fileID: 0}
+  generatorUpgradeDetailsWindowPrefab: {fileID: 0}
   canvas: {fileID: 1612655102}
 --- !u!4 &2126131504
 Transform:

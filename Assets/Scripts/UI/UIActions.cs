@@ -10,11 +10,14 @@ public class UIActions : MonoBehaviour
 
     public float popUpHideTime;
 
-    public GameObject achievementPopUpsParent;
+    public GameObject popUpsParent;
     public StackedNotifications stackedNotifications;
 
     public GameObject achievementPopUpPrefab;
     public GameObject clickIncomeTextPrefab;
+    public GameObject savePopUpPrefab;
+    public GameObject generatorUpgradeDetailsWindowPrefab;
+
     public Canvas canvas;
 
     private Camera gameCamera;
@@ -22,7 +25,7 @@ public class UIActions : MonoBehaviour
     private void Awake() {
         instance = this;
         gameCamera = Camera.main;
-        stackedNotifications = achievementPopUpsParent.GetComponent<StackedNotifications>();
+        stackedNotifications = popUpsParent.GetComponent<StackedNotifications>();
     }
 
     public void SpawnTextOnClick() {
@@ -42,6 +45,14 @@ public class UIActions : MonoBehaviour
         image.sprite = achievement.achievementIcon;
         text.text = achievement.achievementName;
         StartCoroutine(HideAchievementPopUp(popUp));
+    }
+
+    public void SpawnSavePopUp() {
+
+    }
+
+    public void SpawnGeneratorUpgradeDetailsWindow(GameUpgrade upgrade) {
+
     }
 
     private IEnumerator HideAchievementPopUp(GameObject popup) {

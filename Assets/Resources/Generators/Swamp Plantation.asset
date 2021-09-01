@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
-  m_Name: Onion Farm
+  m_Name: Swamp Plantation
   m_EditorClassIdentifier: 
-  generatorName: Farm
-  description: Farms more onions from onion seeds
-  basePrice: 20
-  baseIncome: 1
-  coefficient: 1.12
+  generatorName: 
+  description: 
+  basePrice: 0
+  baseIncome: 0
+  coefficient: 0
   unlockedAtTotalOnions: 0
   generatorIcon: {fileID: 0}

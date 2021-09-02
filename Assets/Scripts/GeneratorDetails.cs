@@ -33,7 +33,7 @@ public class GeneratorDetails : MonoBehaviour
     public List<GameUpgrade> generatorUpgrades;
 
     private event System.Action OnBuy;
-    public event System.Action<uint> OnGeneratorAmountChanged;
+    public event System.Action<uint, uint> OnGeneratorAmountChanged;
     //first argument is a generator to increase, second argument is current generator amount (N) by which it will increase the first argument's multiplier
     //yes i speak veri gud ingrish 
     //public event System.Action<OnionGenerator, uint> IncreasePerN_OnGeneratorAmountChanged; 
@@ -57,8 +57,9 @@ public class GeneratorDetails : MonoBehaviour
             if (playerDetails.Onions < currentPrice) return;
 
             playerDetails.ChangeOnions(-currentPrice);
+            uint oldAmount = generatorAmount;
             generatorAmount += amount;
-            OnGeneratorAmountChanged?.Invoke(generatorAmount);
+            OnGeneratorAmountChanged?.Invoke(oldAmount, generatorAmount);
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
             current100GeneratorsPrice = (ulong)CalculatePrice(100);

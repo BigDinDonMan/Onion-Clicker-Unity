@@ -20,6 +20,7 @@ public class GameUpgrade : ScriptableObject
     public UpgradeType upgradeType;
     public ulong targetGeneratorID;
     public ulong increasePerNOfGeneratorID;
+    public ulong perN;//number per which to increase multiplier by this object's multiplier, NOT_VALID if not used
     public string upgradeName;
     public string description;//by the way, unity supports rich text, so USE IT
     public string flavorText;

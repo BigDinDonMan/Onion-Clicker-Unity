@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ogres
   m_EditorClassIdentifier: 
   ID: 2
-  generatorName: 
-  description: 
+  generatorName: Ogre
+  description: Ogres have layers, so they help you with attracting onions
   basePrice: 0
   baseIncome: 0
   coefficient: 0

@@ -9,6 +9,7 @@ public class BuyUpgradeWindow : MonoBehaviour
     public TextMeshProUGUI upgradeName;
     public TextMeshProUGUI flavorText;
     public TextMeshProUGUI description;
+    public TextMeshProUGUI price;
     public Image icon;
     public Button buyButton;
     public GameUpgrade upgrade;
@@ -21,6 +22,7 @@ public class BuyUpgradeWindow : MonoBehaviour
 
     private void Start() {
         playerDetails = PlayerDetails.instance;
+        UpdateBuyButtonInteractability();
     }
 
     public void SetUpgrade(GameUpgrade u) {
@@ -28,8 +30,9 @@ public class BuyUpgradeWindow : MonoBehaviour
 
         upgradeName.text = u.upgradeName;
         icon.sprite = upgrade.upgradeIcon;
-        flavorText.text = u.flavorText;
+        flavorText.text = $"\"{u.flavorText}\"";
         description.text = u.description;
+        price.text = $"Buy ({u.upgradeCost} onions)"; //todo: change that later to use a suffix like millions, billions etc.
     }
 
     private void Update() {
@@ -42,5 +45,7 @@ public class BuyUpgradeWindow : MonoBehaviour
 
     public void Buy() {
         Destroy(this.gameObject);
+        UpgradesManager.instance.Buy(upgrade);
+        playerDetails.ChangeOnions(-upgrade.upgradeCost);
     }
 }

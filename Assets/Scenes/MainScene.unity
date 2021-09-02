@@ -5380,7 +5380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb6dfdd7180e844f8ce5e2a8eb76ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allUpgrades: []
   unlockedUpgrades: []
   boughtUpgrades: []
   generatorDetails: []

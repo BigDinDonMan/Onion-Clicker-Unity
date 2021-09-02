@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 640c37dfc43658e4d90e325ea0cb6cde, type: 3}
-  m_Name: Swamp Plantation
+  m_Name: Swamp Manufactures
   m_EditorClassIdentifier: 
   ID: 1
-  generatorName: 
-  description: 
+  generatorName: Swamp Manufacture
+  description: Assembles new onions from available parts
   basePrice: 0
   baseIncome: 0
   coefficient: 0

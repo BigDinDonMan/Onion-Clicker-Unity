@@ -51,7 +51,6 @@ public class UpgradesManager : MonoBehaviour
     public void Buy(GameUpgrade upgrade) {
         if (IsBought(upgrade)) return;
         boughtUpgrades.Add(upgrade);
-        unlockedUpgrades.Remove(upgrade);
 
         switch (upgrade.upgradeType) {
             case GameUpgrade.UpgradeType.Click:
@@ -62,6 +61,8 @@ public class UpgradesManager : MonoBehaviour
                 details.incomeGeneratorMultiplier *= upgrade.multiplier;
                 break;
             case GameUpgrade.UpgradeType.IncreasePerNGenerators:
+                GeneratorDetails genToIncreaseDetails = generatorDetails.Find(d => d.generator.ID == upgrade.targetGeneratorID);
+                GeneratorDetails genToIncreaseByNOfDetails = generatorDetails.Find(d => d.generator.ID == upgrade.increasePerNOfGeneratorID);
                 break;
             case GameUpgrade.UpgradeType.GlobalIncreasePerNGenerators:
                 break;

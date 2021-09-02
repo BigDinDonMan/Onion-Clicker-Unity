@@ -23,5 +23,5 @@ MonoBehaviour:
   unlockedAtTotalOnions: -1
   unlockedAtGenerators: 999999
   unlockedAtTotalGenerators: 999999
-  unlockedAtTotalClicks: 50
+  unlockedAtTotalClicks: 1
   upgradeIcon: {fileID: 0}

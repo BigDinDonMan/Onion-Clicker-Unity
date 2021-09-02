@@ -34,6 +34,9 @@ public class GeneratorDetails : MonoBehaviour
 
     private event System.Action OnBuy;
     public event System.Action<uint> OnGeneratorAmountChanged;
+    //first argument is a generator to increase, second argument is current generator amount (N) by which it will increase the first argument's multiplier
+    //yes i speak veri gud ingrish 
+    //public event System.Action<OnionGenerator, uint> IncreasePerN_OnGeneratorAmountChanged; 
 
     private void Start() {
         playerDetails = PlayerDetails.instance;

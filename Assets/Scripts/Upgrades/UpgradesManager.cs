@@ -63,12 +63,18 @@ public class UpgradesManager : MonoBehaviour
             case GameUpgrade.UpgradeType.IncreasePerNGenerators:
                 GeneratorDetails genToIncreaseDetails = generatorDetails.Find(d => d.generator.ID == upgrade.targetGeneratorID);
                 GeneratorDetails genToIncreaseByNOfDetails = generatorDetails.Find(d => d.generator.ID == upgrade.increasePerNOfGeneratorID); //N of this generator - % of multiplier to the one above
-                //just use closure in lambda to capture generator references, we're doing it the FUNCTIONAL WAY BOIS
+                //just use closure in lambda to capture generator references, we're doing it the FUNCTIONAL WAY BOIS (yeah i know its technically not functional way but ssshhhhhh)
                 //and subscribe to the OnGeneratorAmountChanged event, with that same lambda
                 //god i hope this doesn't leak memory
+                genToIncreaseByNOfDetails.OnGeneratorAmountChanged += currentAmount => {
+
+                };
                 break;
             case GameUpgrade.UpgradeType.GlobalIncreasePerNGenerators:
                 GeneratorDetails genToIncreaseByNOfDetails_Global = generatorDetails.Find(d => d.generator.ID == upgrade.increasePerNOfGeneratorID);
+                genToIncreaseByNOfDetails_Global.OnGeneratorAmountChanged += currentAmount => { 
+                
+                };
                 break;
             case GameUpgrade.UpgradeType.Global:
                 break;

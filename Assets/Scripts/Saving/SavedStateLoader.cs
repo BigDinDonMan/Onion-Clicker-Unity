@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SavedStateLoader : MonoBehaviour
 {
+    [SerializeField]
     private SavedState savedState;
 
     private void Awake() {
@@ -12,10 +13,10 @@ public class SavedStateLoader : MonoBehaviour
     }
 
     private SavedState LoadSavedStateData() {
-        return null;
+        return JsonUtility.FromJson<SavedState>(System.IO.File.ReadAllText(System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat")));
     }
 
-    private void SetUpFromLoadedState() { 
-    
+    private void SetUpFromLoadedState() {
+        Debug.Log($"{savedState.boughtGeneratorsData}  {savedState.savedAt}  {savedState.totalClicks}  {savedState.totalOnions}");
     }
 }

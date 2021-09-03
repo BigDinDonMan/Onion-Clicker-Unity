@@ -5,10 +5,12 @@ using UnityEngine;
 //save: generator data (list of structs)
 //unlocked achievements (list of int IDs/names)
 //unlocked and bought upgrades (?)
+[System.Serializable]
 public class SavedState
 {
+    [System.Serializable]
     public class GeneratorState {
-        public string generatorName;
+        public ulong generatorID;
         public uint amount;
     }
 
@@ -21,4 +23,13 @@ public class SavedState
     public double totalOnionsEarned;
     public double totalOnionsSpent;
     public ulong totalClicks;
+    public SerializableTimeStamp savedAt;
+
+    public SavedState() {
+        boughtGeneratorsData = new List<GeneratorState>();
+        unlockedAchievementsData = new List<AchievementUnlockData>();
+        unlockedUpgradesIDs = new List<ulong>();
+        boughtUpgradesIDs = new List<ulong>();
+        savedAt = System.DateTime.Now;
+    }
 }

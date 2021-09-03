@@ -6,5 +6,10 @@ using UnityEngine;
 public struct AchievementUnlockData
 {
     public ulong achievementID;
-    public System.DateTime unlockedAt;
+    public SerializableTimeStamp unlockedAt;
+
+    public AchievementUnlockData(ulong id, System.DateTime unlockedAt) {
+        achievementID = id;
+        this.unlockedAt = new SerializableTimeStamp(unlockedAt);
+    }
 }

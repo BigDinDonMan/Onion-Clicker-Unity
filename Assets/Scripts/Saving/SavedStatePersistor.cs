@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class SavedStatePersistor : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class SavedStatePersistor : MonoBehaviour
     }
 
     private void PersistData() {
+        var state = new SavedState();
 
+        using var fs = new FileStream(Path.Combine(Application.persistentDataPath, "gamedata.dat"), FileMode.OpenOrCreate); 
+        using var writer = new StreamWriter(fs); 
+        writer.Write(JsonUtility.ToJson(state));
     }
 }

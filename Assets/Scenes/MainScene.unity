@@ -6572,6 +6572,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8956a8f440d29e44ab5033f5c3b05958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedState:
+    boughtGeneratorsData: []
+    unlockedAchievementsData: []
+    unlockedUpgradesIDs: 
+    boughtUpgradesIDs: 
+    totalOnions: 0
+    totalClickOnions: 0
+    totalOnionsEarned: 0
+    totalOnionsSpent: 0
+    totalClicks: 0
+    savedAt:
+      hour: 18
+      minute: 36
+      second: 34
+      millisecond: 800
+      day: 3
+      month: 9
+      year: 2021
 --- !u!4 &812818189
 Transform:
   m_ObjectHideFlags: 0
@@ -7136,7 +7154,7 @@ MonoBehaviour:
   unlockedAchievements: []
   unlockedUpgrades: []
   boughtUpgrades: []
-  saveInterval: 0
+  saveInterval: 60
 --- !u!1 &1344137380
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,4 +14,11 @@ public class SavedState
 
     public List<GeneratorState> boughtGeneratorsData;
     public List<AchievementUnlockData> unlockedAchievementsData;
+    public List<ulong> unlockedUpgradesIDs;
+    public List<ulong> boughtUpgradesIDs;
+    public double totalOnions;
+    public double totalClickOnions;
+    public double totalOnionsEarned;
+    public double totalOnionsSpent;
+    public ulong totalClicks;
 }

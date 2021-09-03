@@ -13819,7 +13819,7 @@ MonoBehaviour:
   stackedNotifications: {fileID: 1953229547}
   achievementPopUpPrefab: {fileID: 13306073584924652, guid: 705341dd5f628654d9ba18383b2c53eb, type: 3}
   clickIncomeTextPrefab: {fileID: 3361602670129477784, guid: aa3de2e1ae7599f4b8bec12a1c123cc0, type: 3}
-  savePopUpPrefab: {fileID: 0}
+  savePopUpPrefab: {fileID: 9078187539164173914, guid: 005a38777ae0d504ba557960a39af0fc, type: 3}
   generatorUpgradeDetailsWindowPrefab: {fileID: 863383980762100346, guid: ef717714e8a0ff14fadb9ff6bc62680f, type: 3}
   upgradesBuyParent: {fileID: 483584034}
   canvas: {fileID: 1612655102}

@@ -9,6 +9,7 @@ public class UIActions : MonoBehaviour
     public static UIActions instance;
 
     public float popUpHideTime;
+    private WaitForSeconds popUpWaitTime;
 
     public GameObject popUpsParent;
     public StackedNotifications stackedNotifications;
@@ -28,6 +29,7 @@ public class UIActions : MonoBehaviour
         instance = this;
         gameCamera = Camera.main;
         stackedNotifications = popUpsParent.GetComponent<StackedNotifications>();
+        popUpWaitTime = new WaitForSeconds(popUpHideTime);
     }
 
     public void SpawnTextOnClick() {
@@ -46,11 +48,13 @@ public class UIActions : MonoBehaviour
         var text = nameAndImageParent.GetComponentInChildren<TextMeshProUGUI>();
         image.sprite = achievement.achievementIcon;
         text.text = achievement.achievementName;
-        StartCoroutine(HideAchievementPopUp(popUp));
+        StartCoroutine(HideNotification(popUp));
     }
 
     public void SpawnSavePopUp() {
-
+        var popUp = Instantiate(savePopUpPrefab);
+        stackedNotifications.AddNotification(popUp);
+        StartCoroutine(HideNotification(popUp));
     }
 
     public void SpawnGeneratorUpgradeDetailsWindow(GameUpgrade upgrade) {
@@ -58,8 +62,8 @@ public class UIActions : MonoBehaviour
         upgradeDetails.GetComponent<BuyUpgradeWindow>().SetUpgrade(upgrade);
     }
 
-    private IEnumerator HideAchievementPopUp(GameObject popup) {
-        yield return new WaitForSeconds(popUpHideTime);
+    private IEnumerator HideNotification(GameObject popup) {
+        yield return popUpWaitTime;
         stackedNotifications.RemoveNotification(popup);
     }
 }

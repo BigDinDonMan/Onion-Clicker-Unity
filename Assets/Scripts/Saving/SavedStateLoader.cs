@@ -7,13 +7,17 @@ public class SavedStateLoader : MonoBehaviour
     [SerializeField]
     private SavedState savedState;
 
+    public PlayerDetails playerDetails;
+    public UpgradesManager upgradesManager;
+
     private void Awake() {
         savedState = LoadSavedStateData();
         SetUpFromLoadedState();
     }
 
     private SavedState LoadSavedStateData() {
-        return JsonUtility.FromJson<SavedState>(System.IO.File.ReadAllText(System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat")));
+        var path = System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat");
+        return JsonUtility.FromJson<SavedState>(System.IO.File.ReadAllText(path));
     }
 
     private void SetUpFromLoadedState() {

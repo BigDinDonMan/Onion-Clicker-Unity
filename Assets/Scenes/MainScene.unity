@@ -6590,6 +6590,7 @@ MonoBehaviour:
       day: 3
       month: 9
       year: 2021
+  playerDetails: {fileID: 0}
 --- !u!4 &812818189
 Transform:
   m_ObjectHideFlags: 0
@@ -7154,7 +7155,7 @@ MonoBehaviour:
   unlockedAchievements: []
   unlockedUpgrades: []
   boughtUpgrades: []
-  saveInterval: 60
+  saveInterval: 10
 --- !u!1 &1344137380
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,10 @@ public class GeneratorDetails : MonoBehaviour
     public ulong current10GeneratorsPrice;
     public ulong current100GeneratorsPrice;
     public double incomePerGenerator;
-    public double incomeGeneratorMultiplier = 1d;
+    public double incomeGeneratorMultiplier = 1d; //basic global generator multiplier
     public double increaseFromOtherGeneratorsMultiplier = 0d; //this will be recalculated after every change of generatorAmount after buying these stupid upgrades
-    public double addedGeneratorMultiplier = 0d;
-    public double TotalMultiplier { get => addedGeneratorMultiplier + incomeGeneratorMultiplier + increaseFromOtherGeneratorsMultiplier; }
+    //public double addedGeneratorMultiplier = 0d; //lets remove it for now
+    public double TotalMultiplier { get => /*addedGeneratorMultiplier + */incomeGeneratorMultiplier + increaseFromOtherGeneratorsMultiplier; }
 
     public Button buy1Button;
     public TextMeshProUGUI buy1ButtonText;

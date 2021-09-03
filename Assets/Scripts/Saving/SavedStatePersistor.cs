@@ -6,9 +6,8 @@ public class SavedStatePersistor : MonoBehaviour
 {
     public GameObject detailsParent;
     public List<GeneratorDetails> details;
-    public List<Achievement> unlockedAchievements;
-    public List<GameUpgrade> unlockedUpgrades;
-    public List<GameUpgrade> boughtUpgrades;
+    public UpgradesManager upgradesManager;
+    public PlayerDetails playerDetails;
 
     [SerializeField]
     private float saveInterval;

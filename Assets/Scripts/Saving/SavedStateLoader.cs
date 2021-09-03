@@ -9,6 +9,7 @@ public class SavedStateLoader : MonoBehaviour
 
     public PlayerDetails playerDetails;
     public UpgradesManager upgradesManager;
+    public AchievementManager achievementManager;
 
     private void Awake() {
         savedState = LoadSavedStateData();

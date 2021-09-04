@@ -12,7 +12,6 @@ public class SavedStateLoader : MonoBehaviour
     public UpgradesManager upgradesManager;
     public AchievementManager achievementManager;
 
-    public GameObject upgradesParent;
     public GameObject detailsParent;
     public List<GeneratorDetails> generatorDetails;
 
@@ -22,6 +21,7 @@ public class SavedStateLoader : MonoBehaviour
 
     private void Start() {
         SetUpFromLoadedState();
+        generatorDetails.AddRange(detailsParent.GetComponentsInChildren<GeneratorDetails>());
     }
 
     private SavedState LoadSavedStateData() {
@@ -37,11 +37,13 @@ public class SavedStateLoader : MonoBehaviour
         RespawnUnlockedUpgrades();
     }
 
-    private void SetUpPlayerDetails() {
+    private void SetUpPlayerDetails() { //todo: finish this, not all data is assigned back
         playerDetails.ChangeOnions(savedState.totalOnions);
-        playerDetails.TotalOnionsClicked = savedState.totalClickOnions;
+        playerDetails.TotalOnionsClicked = savedState.totalOnionsClicked;
         playerDetails.TotalOnionsEarned = savedState.totalOnionsEarned;
         playerDetails.TotalOnionsSpent = savedState.totalOnionsSpent;
+        playerDetails.TotalOnionsClicked = savedState.totalOnionsClicked;
+        playerDetails.TotalClicks = savedState.totalClicks;
     }
 
     private void SetUpGeneratorDetails() {//basing on total onions earned, unlock generators in the UI and assign values in the UI like amount, current prices, etc.
@@ -51,6 +53,8 @@ public class SavedStateLoader : MonoBehaviour
             if (!shouldUnlock) return;
             var genData = savedState.boughtGeneratorsData.Find(d => d.generatorID == detail.generator.ID);
             detail.generatorAmount = genData.amount;
+            detail.UpdateGeneratorUI();
+            detail.RecalculatePrices();
         });
     }
 

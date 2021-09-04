@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SavedStatePersistor : MonoBehaviour
 {
     public GameObject detailsParent;
     public List<GeneratorDetails> details;
     public UpgradesManager upgradesManager;
+    public AchievementManager achievementManager;
     public PlayerDetails playerDetails;
 
     [SerializeField]
@@ -41,8 +43,19 @@ public class SavedStatePersistor : MonoBehaviour
     }
 
     private SavedState GatherSaveData() {
-        var state = new SavedState();
-
+        var state = new SavedState {
+            totalClicks = playerDetails.TotalClicks,
+            totalOnions = playerDetails.Onions,
+            totalOnionsClicked = playerDetails.TotalOnionsClicked,
+            totalOnionsSpent = playerDetails.TotalOnionsSpent,
+            totalOnionsEarned = playerDetails.TotalOnionsEarned
+        };
+        state.unlockedAchievementsData.AddRange(achievementManager.unlockedAchievements);
+        state.unlockedUpgradesIDs.AddRange(upgradesManager.unlockedUpgrades.Select(u => u.ID));
+        state.boughtUpgradesIDs.AddRange(upgradesManager.boughtUpgrades.Select(u => u.ID));
+        state.boughtGeneratorsData.AddRange(
+            details.Select(d => new SavedState.GeneratorState() { amount = d.generatorAmount, generatorID = d.generator.ID })
+        );
         return state;
     }
 }

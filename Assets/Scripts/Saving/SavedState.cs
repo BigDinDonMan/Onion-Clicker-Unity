@@ -19,9 +19,9 @@ public class SavedState
     public List<ulong> unlockedUpgradesIDs;
     public List<ulong> boughtUpgradesIDs;
     public double totalOnions;
-    public double totalClickOnions;
     public double totalOnionsEarned;
     public double totalOnionsSpent;
+    public double totalOnionsClicked;
     public ulong totalClicks;
     public SerializableTimeStamp savedAt;
 

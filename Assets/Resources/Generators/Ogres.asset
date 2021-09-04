@@ -15,8 +15,8 @@ MonoBehaviour:
   ID: 2
   generatorName: Ogre
   description: Ogres have layers, so they help you with attracting onions
-  basePrice: 0
-  baseIncome: 0
-  coefficient: 0
+  basePrice: 250
+  baseIncome: 5
+  coefficient: 1.09
   unlockedAtTotalOnions: 0
   generatorIcon: {fileID: 0}

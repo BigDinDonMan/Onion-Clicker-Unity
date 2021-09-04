@@ -24,7 +24,7 @@ public class PlayerDetails : MonoBehaviour
     private double incomeMultiplier = 1d; //this should not be multiplied; only added to
     public double GlobalIncomeMultiplier { get => incomeMultiplier; }
 
-    public ulong TotalClicks = 0;
+    public ulong TotalClicks = 0UL;
 
     public double TotalOnionsEarned = 0d;
     public double TotalOnionsSpent = 0d;

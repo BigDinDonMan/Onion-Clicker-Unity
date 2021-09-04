@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerDetails : MonoBehaviour
 {
-
     public static PlayerDetails instance;
 
     [SerializeField]

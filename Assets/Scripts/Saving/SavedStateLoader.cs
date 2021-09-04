@@ -11,6 +11,10 @@ public class SavedStateLoader : MonoBehaviour
     public UpgradesManager upgradesManager;
     public AchievementManager achievementManager;
 
+    public GameObject upgradesParent;
+    public GameObject detailsParent;
+    public List<GeneratorDetails> generatorDetails;
+
     private void Awake() {
         savedState = LoadSavedStateData();
         SetUpFromLoadedState();
@@ -22,6 +26,9 @@ public class SavedStateLoader : MonoBehaviour
     }
 
     private void SetUpFromLoadedState() {
-        Debug.Log($"{savedState.boughtGeneratorsData}  {savedState.savedAt}  {savedState.totalClicks}  {savedState.totalOnions}");
+        playerDetails.ChangeOnions(savedState.totalOnions);
+        playerDetails.TotalOnionsClicked = savedState.totalClickOnions;
+        playerDetails.TotalOnionsEarned = savedState.totalOnionsEarned;
+        playerDetails.TotalOnionsSpent = savedState.totalOnionsSpent;
     }
 }

@@ -17,6 +17,7 @@ public class GameUpgrade : ScriptableObject
         Global //increase global multiplier
     }
 
+    public ulong ID;
     public UpgradeType upgradeType;
     public ulong targetGeneratorID;
     public ulong increasePerNOfGeneratorID;

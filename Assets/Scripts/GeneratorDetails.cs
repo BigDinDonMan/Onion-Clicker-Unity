@@ -14,7 +14,6 @@ public class GeneratorDetails : MonoBehaviour
     public double incomePerGenerator;
     public double incomeGeneratorMultiplier = 1d; //basic global generator multiplier
     public double increaseFromOtherGeneratorsMultiplier = 0d; //this will be recalculated after every change of generatorAmount after buying these stupid upgrades
-    //public double addedGeneratorMultiplier = 0d; //lets remove it for now
     public double TotalMultiplier { get => /*addedGeneratorMultiplier + */incomeGeneratorMultiplier + increaseFromOtherGeneratorsMultiplier; }
 
     public Button buy1Button;

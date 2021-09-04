@@ -6,6 +6,7 @@ public class UpgradesManager : MonoBehaviour
 {
     public static UpgradesManager instance;
 
+    public List<GameUpgrade> allUpgrades;
     public List<GameUpgrade> unlockedUpgrades;
     public List<GameUpgrade> boughtUpgrades;
 

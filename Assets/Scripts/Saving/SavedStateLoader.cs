@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SavedStateLoader : MonoBehaviour
@@ -17,6 +18,9 @@ public class SavedStateLoader : MonoBehaviour
 
     private void Awake() {
         savedState = LoadSavedStateData();
+    }
+
+    private void Start() {
         SetUpFromLoadedState();
     }
 
@@ -26,7 +30,11 @@ public class SavedStateLoader : MonoBehaviour
     }
 
     private void SetUpFromLoadedState() {
-        
+        SetUpPlayerDetails();
+        SetUpGeneratorDetails();
+        ReapplyBoughtUpgrades();
+        SetUpUnlockedAchievements();
+        RespawnUnlockedUpgrades();
     }
 
     private void SetUpPlayerDetails() {
@@ -36,19 +44,31 @@ public class SavedStateLoader : MonoBehaviour
         playerDetails.TotalOnionsSpent = savedState.totalOnionsSpent;
     }
 
-    private void SetUpGeneratorDetails() {
-
+    private void SetUpGeneratorDetails() {//basing on total onions earned, unlock generators in the UI and assign values in the UI like amount, current prices, etc.
+        var totalOnions = savedState.totalOnionsEarned;
+        generatorDetails.ForEach(detail => {
+            var shouldUnlock = totalOnions >= detail.generator.unlockedAtTotalOnions;
+            if (!shouldUnlock) return;
+            var genData = savedState.boughtGeneratorsData.Find(d => d.generatorID == detail.generator.ID);
+            detail.generatorAmount = genData.amount;
+        });
     }
 
-    private void ReapplyBoughtUpgrades() {
-
+    private void ReapplyBoughtUpgrades() {//reapply all bought upgrades + set up event listeners
+        savedState.boughtUpgradesIDs.ForEach(ID => {
+            var upgrade = upgradesManager.allUpgrades.Find(u => u.ID == ID);
+            upgradesManager.Buy(upgrade);
+        });
     }
 
-    private void SetUpUnlockedAchievements() {
-
+    private void SetUpUnlockedAchievements() {//that is self-explanatory, just add unlocked achievements in achievement manager
+        savedState.unlockedAchievementsData.ForEach(achievementManager.unlockedAchievements.Add);
     }
 
-    private void RespawnUnlockedUpgrades() {
-
+    private void RespawnUnlockedUpgrades() {//spawn upgrades that are unlocked but not yet bought
+        savedState.unlockedUpgradesIDs.ForEach(ID => {
+            var upgrade = upgradesManager.allUpgrades.Find(u => u.ID == ID);
+            upgradesManager.Unlock(upgrade);
+        });
     }
 }

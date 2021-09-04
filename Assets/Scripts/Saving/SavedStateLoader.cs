@@ -53,7 +53,7 @@ public class SavedStateLoader : MonoBehaviour
             var shouldUnlock = totalOnions >= detail.generator.unlockedAtTotalOnions;
             if (!shouldUnlock) return;
             var genData = savedState.boughtGeneratorsData.Find(d => d.generatorID == detail.generator.ID);
-            detail.generatorAmount = genData.amount;
+            detail.IncreaseAmount(genData.amount);
             detail.UpdateGeneratorUI();
             detail.RecalculatePrices();
         });

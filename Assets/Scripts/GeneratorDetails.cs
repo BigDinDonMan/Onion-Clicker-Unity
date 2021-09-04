@@ -56,9 +56,7 @@ public class GeneratorDetails : MonoBehaviour
             if (playerDetails.Onions < currentPrice) return;
 
             playerDetails.ChangeOnions(-currentPrice);
-            uint oldAmount = generatorAmount;
-            generatorAmount += amount;
-            OnGeneratorAmountChanged?.Invoke(oldAmount, generatorAmount);
+            IncreaseAmount(amount);
             currentGeneratorPrice = (ulong)CalculatePrice(1);
             current10GeneratorsPrice = (ulong)CalculatePrice(10);
             current100GeneratorsPrice = (ulong)CalculatePrice(100);
@@ -130,5 +128,11 @@ public class GeneratorDetails : MonoBehaviour
                 UpgradesManager.instance.Unlock(upgrade);
             }
         }
+    }
+
+    public void IncreaseAmount(uint diff) {
+        uint oldAmount = generatorAmount;
+        generatorAmount += diff;
+        OnGeneratorAmountChanged?.Invoke(oldAmount, generatorAmount);
     }
 }

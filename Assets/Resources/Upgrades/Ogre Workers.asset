@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
   m_Name: Ogre Workers
   m_EditorClassIdentifier: 
+  ID: 2
   upgradeType: 2
   targetGeneratorID: 0
   increasePerNOfGeneratorID: 0
+  perN: 0
   upgradeName: 
   description: 
   flavorText: 
   upgradeCost: 0
   multiplier: 0
+  unlockedAtTotalOnions: 0
+  unlockedAtGenerators: 0
+  unlockedAtTotalGenerators: 0
+  unlockedAtTotalClicks: 0
   upgradeIcon: {fileID: 0}

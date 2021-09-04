@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
   m_Name: Stronger Cursor
   m_EditorClassIdentifier: 
+  ID: 3
   upgradeType: 0
   targetGeneratorID: 0
   increasePerNOfGeneratorID: 0
+  perN: 0
   upgradeName: Stronger Cursor
   description: Clicking generates <b>twice</b> as many onions
   flavorText: For those that really enjoy clicking

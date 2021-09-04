@@ -20,16 +20,17 @@ public class SavedStateLoader : MonoBehaviour
     }
 
     private void Start() {
-        SetUpFromLoadedState();
         generatorDetails.AddRange(detailsParent.GetComponentsInChildren<GeneratorDetails>());
+        SetUpFromLoadedState();
     }
 
     private SavedState LoadSavedStateData() {
         var path = System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat");
-        return JsonUtility.FromJson<SavedState>(System.IO.File.ReadAllText(path));
+        return System.IO.File.Exists(path) ? JsonUtility.FromJson<SavedState>(System.IO.File.ReadAllText(path)) : null;
     }
 
     private void SetUpFromLoadedState() {
+        if (savedState == null) return;
         SetUpPlayerDetails();
         SetUpGeneratorDetails();
         ReapplyBoughtUpgrades();

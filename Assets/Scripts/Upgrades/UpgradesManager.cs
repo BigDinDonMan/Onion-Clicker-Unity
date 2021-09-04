@@ -10,6 +10,7 @@ public class UpgradesManager : MonoBehaviour
     public List<GameUpgrade> unlockedUpgrades;
     public List<GameUpgrade> boughtUpgrades;
 
+    [SerializeField]
     private PlayerDetails playerDetails;
 
     public List<GeneratorDetails> generatorDetails;
@@ -18,12 +19,8 @@ public class UpgradesManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start() {
-        playerDetails = PlayerDetails.instance;
-    }
-
     public bool Unlock(GameUpgrade upgrade, GlobalUpgradeTriggerData? data = null) {
-        if (IsUnlocked(upgrade)) return false;
+        if (IsUnlocked(upgrade) || IsBought(upgrade)) return false;
         if (data != null) { //global upgrade
             var actualData = data.Value;
             switch (upgrade.upgradeType) {//types not included in here are generator specific and will be handled in gen details

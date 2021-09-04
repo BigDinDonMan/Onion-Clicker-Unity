@@ -35,9 +35,14 @@ public class SavedStatePersistor : MonoBehaviour
     }
 
     private void PersistData() {
-        var state = new SavedState();
-
+        var state = GatherSaveData();
         var path = System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat");
         System.IO.File.WriteAllText(path, JsonUtility.ToJson(state));
+    }
+
+    private SavedState GatherSaveData() {
+        var state = new SavedState();
+
+        return state;
     }
 }

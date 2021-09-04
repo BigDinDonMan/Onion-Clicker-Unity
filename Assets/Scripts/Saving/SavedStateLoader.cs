@@ -26,9 +26,29 @@ public class SavedStateLoader : MonoBehaviour
     }
 
     private void SetUpFromLoadedState() {
+        
+    }
+
+    private void SetUpPlayerDetails() {
         playerDetails.ChangeOnions(savedState.totalOnions);
         playerDetails.TotalOnionsClicked = savedState.totalClickOnions;
         playerDetails.TotalOnionsEarned = savedState.totalOnionsEarned;
         playerDetails.TotalOnionsSpent = savedState.totalOnionsSpent;
+    }
+
+    private void SetUpGeneratorDetails() {
+
+    }
+
+    private void ReapplyBoughtUpgrades() {
+
+    }
+
+    private void SetUpUnlockedAchievements() {
+
+    }
+
+    private void RespawnUnlockedUpgrades() {
+
     }
 }

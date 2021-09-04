@@ -25,6 +25,9 @@ public class UIActions : MonoBehaviour
 
     private Camera gameCamera;
 
+    [SerializeField]
+    private SavedStatePersistor statePersistor;
+
     private void Awake() {
         instance = this;
         gameCamera = Camera.main;
@@ -60,6 +63,22 @@ public class UIActions : MonoBehaviour
     public void SpawnGeneratorUpgradeDetailsWindow(GameUpgrade upgrade) {
         var upgradeDetails = Instantiate(generatorUpgradeDetailsWindowPrefab, upgradesBuyParent.transform);
         upgradeDetails.GetComponent<BuyUpgradeWindow>().SetUpgrade(upgrade);
+    }
+
+    public void ForceSaveGameState() {
+        //statePersistor.StopCoroutine("SaveCurrentGameState");
+    }
+
+    public void ShowStatisticsWindow() {
+
+    }
+
+    public void ShowSettingsWindow() {
+
+    }
+
+    public void ShowAchievementsWindow() {
+
     }
 
     private IEnumerator HideNotification(GameObject popup) {

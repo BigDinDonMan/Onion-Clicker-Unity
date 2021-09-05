@@ -66,7 +66,12 @@ public class UIActions : MonoBehaviour
     }
 
     public void ForceSaveGameState() {
-        //statePersistor.StopCoroutine("SaveCurrentGameState");
+        statePersistor.StopCoroutine("SaveCurrentGameState");
+
+        statePersistor.PersistData();
+        SpawnSavePopUp();
+
+        statePersistor.StartSaving();
     }
 
     public void ShowStatisticsWindow() {

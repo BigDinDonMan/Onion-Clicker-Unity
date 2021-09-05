@@ -25,6 +25,10 @@ public class SavedStatePersistor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartSaving();
+    }
+
+    internal void StartSaving() {
         StartCoroutine(SaveCurrentGameState());
     }
 
@@ -36,7 +40,7 @@ public class SavedStatePersistor : MonoBehaviour
         }
     }
 
-    private void PersistData() {
+    internal void PersistData() {
         var state = GatherSaveData();
         var path = System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat");
         System.IO.File.WriteAllText(path, JsonUtility.ToJson(state));

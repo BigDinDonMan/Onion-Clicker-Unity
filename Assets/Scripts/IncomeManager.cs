@@ -18,9 +18,11 @@ public class IncomeManager : MonoBehaviour
     private WaitForSeconds waitTime;
 
     private PlayerDetails playerDetails;
+    private IncomeSuffixMap suffixMap;
 
     private void Awake() {
         playerDetails = PlayerDetails.instance;
+        suffixMap = IncomeSuffixMap.instance;
         waitTime = new WaitForSeconds(10f / 60f); //wait 10 frames
     }
 
@@ -28,6 +30,7 @@ public class IncomeManager : MonoBehaviour
     {
         generatorDetailsList.AddRange(detailsParent.GetComponentsInChildren<GeneratorDetails>());
         playerDetails.OnOnionsChanged += this.UpdateDisplay;
+        playerDetails.OnOnionsChanged += () => generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
         UpdateDisplay();
         StartCoroutine(CheckForGlobalAchievements());
         StartCoroutine(CheckForUpgradesUnlock());
@@ -41,14 +44,21 @@ public class IncomeManager : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space)) {
             playerDetails.ChangeOnions(100);
-            generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace)) {
+            playerDetails.ChangeOnions(1_000_000);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightShift)) {
+            playerDetails.ChangeOnions(100_000_000);
         }
 #endif
     }
 
     public void UpdateDisplay() {
-        var currentOnionsStr = $"{playerDetails.Onions:0} onions";
-        var onionsPerSecondStr = $"{generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator * genDetails.TotalMultiplier):0.0} onions per second";
+        var currentOnionsStr = $"{suffixMap.MapToString(playerDetails.Onions)} onions";
+        var onionsPerSecondStr = $"{suffixMap.MapToString(generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator * genDetails.TotalMultiplier))} onions per second";
         onionsPerSecondText.text = onionsPerSecondStr;
         currentOnionsText.text = currentOnionsStr;
     }
@@ -56,7 +66,6 @@ public class IncomeManager : MonoBehaviour
     private void CalculateFrameIncome() {
         var totalFrameIncome = generatorDetailsList.Sum(detail => detail.generatorAmount * detail.incomePerGenerator * Time.deltaTime * detail.TotalMultiplier) * playerDetails.GlobalIncomeMultiplier;
         playerDetails.ChangeOnions(totalFrameIncome);
-        generatorDetailsList.ForEach(detail => detail.UpdateButtonsEnabled());
     }
 
     private void CheckForGeneratorUnlock() {

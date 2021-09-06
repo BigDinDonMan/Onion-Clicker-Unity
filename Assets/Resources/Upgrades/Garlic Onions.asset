@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
   m_Name: Garlic Onions
   m_EditorClassIdentifier: 
-  ID: 0
-  upgradeType: 0
+  ID: 1
+  upgradeType: 4
   targetGeneratorID: 0
   increasePerNOfGeneratorID: 0
   perN: 0

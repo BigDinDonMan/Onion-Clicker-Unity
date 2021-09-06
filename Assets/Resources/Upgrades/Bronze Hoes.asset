@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a59c0d0ba5f0874aad0a49edec9ab13, type: 3}
   m_Name: Bronze Hoes
   m_EditorClassIdentifier: 
+  ID: 0
   upgradeType: 1
   targetGeneratorID: 0
   increasePerNOfGeneratorID: 99999999
+  perN: 0
   upgradeName: Bronze Hoes
-  description: Increases Farm efficiency <b>twice</b>
+  description: Increases Farm efficiency <b>by 100%</b>
   flavorText: Almost as good as iron ones
   upgradeCost: 1000
   multiplier: 2

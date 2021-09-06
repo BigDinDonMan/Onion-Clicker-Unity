@@ -19,6 +19,10 @@ public class UIActions : MonoBehaviour
     public GameObject savePopUpPrefab;
     public GameObject generatorUpgradeDetailsWindowPrefab;
 
+    public GameObject statisticsWindow;
+    public GameObject achievementsWindow;
+    public GameObject optionsWindow;
+
     public GameObject upgradesBuyParent;
 
     public Canvas canvas;
@@ -74,15 +78,14 @@ public class UIActions : MonoBehaviour
         statePersistor.StartSaving();
     }
 
-    public void ShowStatisticsWindow() {
+    public void ToggleStatisticsWindow() {
+    }
+
+    public void ToggleSettingsWindow() {
 
     }
 
-    public void ShowSettingsWindow() {
-
-    }
-
-    public void ShowAchievementsWindow() {
+    public void ToggleAchievementsWindow() {
 
     }
 

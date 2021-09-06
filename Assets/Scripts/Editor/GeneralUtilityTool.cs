@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.EditorTools;
+using System.Linq;
 
 public class GeneralUtilityTool : Editor
 {
-    
     [MenuItem("File/Game/Data/Clear save file data", false, -1)]
     public static void ClearSaveData() {
         var saveFilePath = System.IO.Path.Combine(Application.persistentDataPath, "gamedata.dat");
         System.IO.File.Delete(saveFilePath);
     }
 
+    /*these methods should only be used during initial development. do not use them after first release, rather add IDs manually*/
     [MenuItem("File/Scriptable objects/Auto-assign IDs/Achievements")]
     public static void AutoAssignAchievementIDs() {
         ulong startID = 0;

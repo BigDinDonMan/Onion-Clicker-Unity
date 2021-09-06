@@ -58,7 +58,7 @@ public class IncomeManager : MonoBehaviour
 
     public void UpdateDisplay() {
         var currentOnionsStr = $"{suffixMap.MapToString(playerDetails.Onions)} onions";
-        var onionsPerSecondStr = $"{suffixMap.MapToString(generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator * genDetails.TotalMultiplier))} onions per second";
+        var onionsPerSecondStr = $"Per second: {suffixMap.MapToString(generatorDetailsList.Sum(genDetails => genDetails.generatorAmount * genDetails.incomePerGenerator * genDetails.TotalMultiplier))}";
         onionsPerSecondText.text = onionsPerSecondStr;
         currentOnionsText.text = currentOnionsStr;
     }

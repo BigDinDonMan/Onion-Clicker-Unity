@@ -7,13 +7,11 @@ public class MainOnionButton : MonoBehaviour
     private ParticleSystem buttonParticleSystem; //launch single burst on click
     private List<ParticleSystem> particleSystems;
     private Animator onionAnimator; //reduce size and increase it back on click
-    private Camera gameCamera;
 
     public Texture2D cursorTexture;
 
     void Awake()
     {
-        gameCamera = Camera.main;
         onionAnimator = GetComponent<Animator>();
         buttonParticleSystem.transform.position = this.transform.position;
         particleSystems = new List<ParticleSystem>() { buttonParticleSystem };

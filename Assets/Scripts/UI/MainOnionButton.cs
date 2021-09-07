@@ -11,8 +11,6 @@ public class MainOnionButton : MonoBehaviour
 
     public Texture2D cursorTexture;
 
-    public float rotationSpeed;
-
     void Awake()
     {
         gameCamera = Camera.main;
@@ -20,11 +18,6 @@ public class MainOnionButton : MonoBehaviour
         buttonParticleSystem.transform.position = this.transform.position;
         particleSystems = new List<ParticleSystem>() { buttonParticleSystem };
         particleSystems.AddRange(buttonParticleSystem.gameObject.GetComponentsInChildren<ParticleSystem>());
-    }
-
-    void Update()
-    {
-        this.transform.Rotate(0f, 0f, Time.deltaTime * rotationSpeed);
     }
 
     public void PlayShrinkAnimation() {
